@@ -83,6 +83,29 @@ extension MoyaProvider where Target: Cacheable {
     
 }
 
+enum YourAPI: Moya.TargetType {
+    case firstEndpoint (someParameter: String, anotherParameter: Int)
+    var baseURL:NSURL {return NSURL(string: "http://swapi.co/api/")! }
+    
+    var path : String {
+        switch self {
+        case .firstEndpoint(someParameter: let a, anotherParameter: _): return "/firstEndpoint/\(a)"
+        }
+    }
+    
+    var method: Moya.Method {return .GET}
+    
+    var parameters: [String : AnyObject]? {
+        switch self {
+        default: return nil
+        }
+    }
+    
+    var sampleData: NSData {
+        return "".dataUsingEncoding(NSUTF8StringEncoding)!
+    }
+}
+
 /// A persistent cache for resources
 private let resourceCache = try! Cache<NSData>(name: "APIResource")
 
