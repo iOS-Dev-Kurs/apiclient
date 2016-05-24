@@ -13,6 +13,9 @@
 		874D065E1CEF295E009A494D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 874D065C1CEF295E009A494D /* Main.storyboard */; };
 		874D06601CEF295E009A494D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 874D065F1CEF295E009A494D /* Assets.xcassets */; };
 		874D06631CEF295E009A494D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 874D06611CEF295E009A494D /* LaunchScreen.storyboard */; };
+		A0A3FC001CF38D8C00FC6A8C /* PlanetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A3FBFF1CF38D8C00FC6A8C /* PlanetViewController.swift */; };
+		A0A3FC021CF38F6B00FC6A8C /* PlanetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A3FC011CF38F6B00FC6A8C /* PlanetAPI.swift */; };
+		A0A3FC061CF399A400FC6A8C /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A3FC051CF399A400FC6A8C /* Planet.swift */; };
 		A526FDEE5BF2D1BC3C97B9FA /* Pods_APIClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD8A5B3E1266D5298CABE44A /* Pods_APIClient.framework */; };
 		E9294E7F05F2671186BD1359 /* Pods_APIClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFA0A7AA37697BD5CBC3211 /* Pods_APIClientTests.framework */; };
 /* End PBXBuildFile section */
@@ -51,6 +54,9 @@
 		87EC715D1CFA381600FBDDDE /* APIClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APIClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87EC71611CFA381600FBDDDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93EFAB13AE62F1B6FB2683B2 /* Pods-APIClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APIClient/Pods-APIClient.debug.xcconfig"; sourceTree = "<group>"; };
+		A0A3FBFF1CF38D8C00FC6A8C /* PlanetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetViewController.swift; sourceTree = "<group>"; };
+		A0A3FC011CF38F6B00FC6A8C /* PlanetAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetAPI.swift; sourceTree = "<group>"; };
+		A0A3FC051CF399A400FC6A8C /* Planet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
 		BD8A5B3E1266D5298CABE44A /* Pods_APIClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67B3B3E7990BE278400974F /* Pods-APIClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientUITests/Pods-APIClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F8B9811B1068B05E73195990 /* Pods-APIClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientTests/Pods-APIClientTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +94,7 @@
 		872A27571CF0D4E200A988C4 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				A0A3FBFF1CF38D8C00FC6A8C /* PlanetViewController.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -103,6 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				872A275B1CF0D87100A988C4 /* APIResource.swift */,
+				A0A3FC011CF38F6B00FC6A8C /* PlanetAPI.swift */,
+				A0A3FC051CF399A400FC6A8C /* Planet.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -468,8 +477,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0A3FC021CF38F6B00FC6A8C /* PlanetAPI.swift in Sources */,
 				872A275C1CF0D87100A988C4 /* APIResource.swift in Sources */,
 				874D06591CEF295E009A494D /* AppDelegate.swift in Sources */,
+				A0A3FC001CF38D8C00FC6A8C /* PlanetViewController.swift in Sources */,
+				A0A3FC061CF399A400FC6A8C /* Planet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
