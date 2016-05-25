@@ -17,15 +17,15 @@ class PlanetViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    var planetAPI: MoyaProvider<PlanetAPI>
+    var planetAPI: MoyaProvider<PlanetAPI>!
  
     
     @IBOutlet weak var searchField: UITextField!
-    @IBOutlet weak var Planet: UILabel!
+    @IBOutlet weak var planetLab: UILabel!
     
     
-    func loadPlanet(name: String){
-        planetAPI.request(.planet(name: name)){ result in
+    func loadPlanet(planet: NamedResource<Planet>){
+        planetAPI.request(.planet(planet)){ result in
             switch result {
             case .Success(let response):
                 do {
@@ -53,7 +53,7 @@ class PlanetViewController: UIViewController {
         guard let name = textField.text else {
             return true
         }
-        self.loadPlanet(name)
+        self.loadPlanet(NamedResource(name: name))
         return true
     }
 }
