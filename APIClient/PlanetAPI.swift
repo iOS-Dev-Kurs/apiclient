@@ -11,7 +11,7 @@ import Moya
 import Freddy
 
 enum PlanetAPI: Moya.TargetType{
-    case planet(name: String)
+    case planet(NamedResource<Planet>)
     
     var baseURL: NSURL { return NSURL(string: "http://swapi.co/api")! }
     
