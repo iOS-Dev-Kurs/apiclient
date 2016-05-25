@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -21,24 +22,80 @@
             </objects>
             <point key="canvasLocation" x="-658" y="301"/>
         </scene>
-        <!--View Controller-->
+        <!--Star Wars View Controller-->
         <scene sceneID="adh-8k-Iuh">
             <objects>
-                <viewController id="rPr-Fp-ALE" sceneMemberID="viewController">
+                <viewController id="rPr-Fp-ALE" customClass="StarWarsViewController" customModule="APIClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pj8-zF-1z6"/>
-                        <viewControllerLayoutGuide type="bottom" id="kt2-9S-3TK"/>
+                        <viewControllerLayoutGuide type="top" id="chM-FO-a62"/>
+                        <viewControllerLayoutGuide type="bottom" id="7iq-nK-Ekc"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rEB-Za-Zhx">
+                    <view key="view" contentMode="scaleToFill" id="bBw-Ym-2uK">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="PyA-76-HkM">
+                                <rect key="frame" x="20" y="64" width="560" height="200"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fed-da-Z7f">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="128"/>
+                                        <subviews>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="WIi-xB-SU0">
+                                                <rect key="frame" x="0.0" y="0.0" width="20" height="128"/>
+                                            </activityIndicatorView>
+                                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DR2-O2-uIl">
+                                                <rect key="frame" x="20" y="0.0" width="0.0" height="128"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6f-iU-cZH">
+                                                <rect key="frame" x="20" y="0.0" width="540" height="128"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNJ-HG-JlX">
+                                        <rect key="frame" x="0.0" y="128" width="560" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdM-iY-5PV">
+                                        <rect key="frame" x="0.0" y="149" width="560" height="52"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PyA-76-HkM" firstAttribute="top" secondItem="chM-FO-a62" secondAttribute="bottom" id="20W-JS-SCI"/>
+                            <constraint firstItem="7iq-nK-Ekc" firstAttribute="top" secondItem="PyA-76-HkM" secondAttribute="bottom" constant="336" id="kuu-ab-DLu"/>
+                            <constraint firstItem="PyA-76-HkM" firstAttribute="centerX" secondItem="bBw-Ym-2uK" secondAttribute="centerX" id="l1O-ME-tnZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PyA-76-HkM" secondAttribute="trailing" id="nFy-Gc-HDe"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="PyA-76-HkM" secondAttribute="leading" id="sML-Po-ftm"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="CZR-l9-xMg"/>
+                    <navigationItem key="navigationItem" id="CZR-l9-xMg">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="xUM-UT-swT">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="loadingIndicator" destination="WIi-xB-SU0" id="JLP-zs-ig3"/>
+                        <outlet property="planetLabel" destination="y6f-iU-cZH" id="Qi9-LI-6pw"/>
+                        <outlet property="searchTxtField" destination="xUM-UT-swT" id="Mje-gr-4AA"/>
+                        <outlet property="starShipImage" destination="DR2-O2-uIl" id="Vhn-p4-FZD"/>
+                        <outlet property="starShipLabel" destination="y6f-iU-cZH" id="OgI-WB-GUp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OaC-W5-AeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65" y="301"/>
+            <point key="canvasLocation" x="67" y="301"/>
         </scene>
     </scenes>
 </document>

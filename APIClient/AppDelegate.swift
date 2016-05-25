@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Moya
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         if let starWarsViewController = (window?.rootViewController as? UINavigationController)?.topViewController as? StarWarsViewController {
-            
+//    API to ViewController
+            starWarsViewController.starWAPI = starWAPI
         }
         
         return true

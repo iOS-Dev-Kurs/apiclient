@@ -6,7 +6,6 @@
 //  Copyright © 2016 iOS Dev Kurs Universität Heidelberg. All rights reserved.
 //
 
-import Foundation
 import UIKit
 import Freddy
 import Moya
@@ -17,4 +16,10 @@ class StarWarsViewController: UIViewController {
     var starWAPI : MoyaProvider<SWAPI>!
     
     
+    
+    
+    @IBOutlet weak var searchTxtField: UITextField!
+    @IBOutlet weak var starShipLoading: UIActivityIndicatorView!
+    @IBOutlet weak var starShipLabel: UILabel!
+    @IBOutlet weak var starShipImage: UIImageView!
 }
