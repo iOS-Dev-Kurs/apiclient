@@ -35,14 +35,39 @@ enum Emotion {
             return ""
         }
     }
+    // Abstände in Prozent
+    var eyes: (left: CGFloat, right: CGFloat, top: CGFloat) {
+        switch self {
+        case .Angry:
+            return (CGFloat(0.36), CGFloat(0.64), CGFloat(0.58))
+        case .Contemptuous:
+            return (CGFloat(0.33), CGFloat(0.66), CGFloat(0.36))
+        case .Disgusted:
+            return (CGFloat(0.4), CGFloat(0.6), CGFloat(0.55))
+        case .Afraid:
+            return (CGFloat(0.36), CGFloat(0.64), CGFloat(0.55))
+        case .Happy:
+            return (CGFloat(0.36), CGFloat(0.64), CGFloat(0.36))
+        case .Neutral:
+            return (CGFloat(0.36), CGFloat(0.64), CGFloat(0.38))
+        case .Sad:
+            return (CGFloat(0.33), CGFloat(0.66), CGFloat(0.58))
+        case .Surprised:
+            return (CGFloat(0.27), CGFloat(0.73), CGFloat(0.49))
+        default:
+            return (0.33, 0.66, 0.4)
+        }
+    }
 }
 
 // struct Person
 struct Person {
-    let position: CGPoint
-    let width: CGFloat
-    let height: CGFloat
+    var faceRectangle: Rectangle
     
+    var leftEye: CGPoint = CGPointZero
+    var rightEye: CGPoint = CGPointZero
+    
+
     var scores: [Emotion: Double] = [:]
     let compositedEmotion: Emotion
     
@@ -57,9 +82,8 @@ extension Person: JSONDecodable {
         let width = try json.int("faceRectangle", "width")
         let height = try json.int("faceRectangle", "width")
         
-        self.position = CGPoint(x: left, y: top)
-        self.width = CGFloat(width)
-        self.height = CGFloat(height)
+        let faceRectangle = Rectangle(left: left, top: top, width: width, height: height)
+        self.faceRectangle = faceRectangle
         
         
         // Emotionen, auf die ich prüfen will
@@ -91,6 +115,55 @@ extension Person: JSONDecodable {
     
 }
 
+struct Rectangle: Equatable {
+    let left: Int
+    let top: Int
+    let width: Int
+    let height: Int
+    // Für Winkelbestimmung
+    var leftEye: CGPoint = CGPointZero
+    var rightEye: CGPoint = CGPointZero
+    
+    var description: String {
+        return "\(left),\(top),\(width),\(height)"
+    }
+    
+    init(left: Int, top: Int, width: Int, height: Int) {
+        self.left = left
+        self.top = top
+        self.width = width
+        self.height = height
+    }
+}
+func ==(lhs: Rectangle, rhs: Rectangle) -> Bool {
+    if lhs.left == rhs.left && lhs.top == rhs.top && lhs.width == rhs.width && lhs.height == rhs.height {
+        return true
+    } else {
+        return false
+    }
+}
+extension Rectangle: JSONDecodable {
+    public init(json: JSON) throws {
+        let left = try json.int("faceRectangle", "left")
+        self.left = left
+        let top = try json.int("faceRectangle", "top")
+        self.top = top
+        let width = try json.int("faceRectangle", "width")
+        self.width = width
+        let height = try json.int("faceRectangle", "height")
+        self.height = height
+        
+        let leftEyeX = try json.double("faceLandmarks", "pupilLeft", "x")
+        let leftEyeY = try json.double("faceLandmarks", "pupilLeft", "y")
+        let rightEyeX = try json.double("faceLandmarks", "pupilRight", "x")
+        let rightEyeY = try json.double("faceLandmarks", "pupilRight", "y")
+        
 
+        self.leftEye = CGPoint(x: leftEyeX, y: leftEyeY)
+        self.rightEye = CGPoint(x: rightEyeX, y: rightEyeY)
+        
+        
+    }
+}
 
 

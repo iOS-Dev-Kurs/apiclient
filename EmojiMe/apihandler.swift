@@ -14,7 +14,7 @@ import Alamofire
 enum MicrosoftFaces: TargetType {
     
     case faceDetection(UIImage) // für spätere genauere Anpassung der Smileys andie Gesichter
-    case faceEmotion(UIImage)
+    case faceEmotion(UIImage, [Rectangle]?)
     
     var baseURL: NSURL {
         return NSURL(string: "https://api.projectoxford.ai")!
@@ -48,12 +48,27 @@ enum MicrosoftFaces: TargetType {
             guard let imageData = getJPEGSmallerThan(image, maxSizeInMB: 0.3) else {
                 return nil
             }
-            return ["body": imageData]
-        case .faceEmotion(let image):
+            return ["body": imageData, "returnFaceLandmarks": "true"]
+        case .faceEmotion(let image, let rectangles):
             guard let imageData = getJPEGSmallerThan(image, maxSizeInMB: 0.3) else {
                 return nil
             }
-            return ["body": imageData]
+            guard let faceRectangles = rectangles else { return ["body": imageData]}
+            
+            
+            var rectanglesString = ""
+            var wasFirst = true
+            
+            for rectangle in faceRectangles {
+                if wasFirst {
+                    wasFirst = false
+                } else {
+                    rectanglesString += ";"
+                }
+                rectanglesString += rectangle.description
+            }
+            
+            return ["body": imageData, "faceRectangles": rectanglesString]
         default:
             return nil
             
@@ -91,10 +106,32 @@ func getJPEGSmallerThan(image: UIImage, maxSizeInMB: Float) -> NSData? {
 
 // eigener Endpoint, da Authentifikation und Bild
 let endPointWithAuthentification = {(target: MicrosoftFaces) -> Endpoint<MicrosoftFaces> in
-    let url = target.baseURL.URLByAppendingPathComponent(target.path).absoluteString
-    let parameterEncoding = Moya.ParameterEncoding.Custom({ requestConvertible, parameters in
-        let urlRequest = requestConvertible.URLRequest.mutableCopy() as! NSMutableURLRequest
+    
+    
+    // TODO: Fix this!
+    // Irgendwie so ähnlich wie unten, aber .URL funzt nicht :/
+    var addString = ""
+    if let unwrappedParameters = target.parameters where unwrappedParameters.count > 0 {
+        addString = "?"
+        var wasFirst = true
+        for (key, value) in unwrappedParameters {
+            if !wasFirst {
+                addString += "&"
+            } else {
+                wasFirst = false
+            }
+            if key != "body" {
+                addString += key + "=" + (value as! String)
+            }
+        }
+        addString = String(addString.characters.dropLast(1))
         
+    }
+    
+    
+    let url = target.baseURL.URLByAppendingPathComponent(target.path).absoluteString + addString
+    let parameterEncodingPic = Moya.ParameterEncoding.Custom({ requestConvertible, parameters in
+        let urlRequest = requestConvertible.URLRequest.mutableCopy() as! NSMutableURLRequest
         
         if let body = parameters?["body"] as? NSData {
             urlRequest.HTTPBody = body
@@ -102,13 +139,35 @@ let endPointWithAuthentification = {(target: MicrosoftFaces) -> Endpoint<Microso
         
         return (urlRequest, nil)
     })
-    let endpoint: Endpoint<MicrosoftFaces> = Endpoint<MicrosoftFaces>(
-        URL: url,
-        sampleResponseClosure: { .NetworkResponse(200, target.sampleData) },
-        method: target.method,
-        parameters: target.parameters,
-        parameterEncoding: parameterEncoding
-    )
+    
+    var endpoint: Endpoint<MicrosoftFaces>
+    
+    if let pic = target.parameters?["body"] {
+        var newParameters = target.parameters
+        newParameters?.removeValueForKey("body")
+        
+        endpoint = Endpoint<MicrosoftFaces>(
+            URL: url,
+            sampleResponseClosure: { .NetworkResponse(200, target.sampleData) },
+            method: target.method,
+            parameters: newParameters,
+            parameterEncoding: .URL
+        )
+        
+        
+        endpoint = endpoint.endpointByAdding(parameters: ["body": pic], parameterEncoding: parameterEncodingPic)
+        
+    } else {
+        endpoint = Endpoint<MicrosoftFaces>(
+            URL: url,
+            sampleResponseClosure: { .NetworkResponse(200, target.sampleData) },
+            method: target.method,
+            parameters: target.parameters,
+            parameterEncoding: .URL
+        )
+    }
+    
+
     return endpoint.endpointByAddingHTTPHeaderFields([
         "Ocp-Apim-Subscription-Key": target.authKey,
         "Content-Type": "application/octet-stream",

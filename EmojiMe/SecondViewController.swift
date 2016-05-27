@@ -21,6 +21,7 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
     let MicrosoftProvider = MoyaProvider<MicrosoftFaces>(endpointClosure: endPointWithAuthentification)
     
     // speichert alle erkannten Personen im Bild
+    // besser: detectedPersons: [Rectangle: Person]
     var detectedPersons: [Person]? {
         didSet {
             drawSmileys()
@@ -120,9 +121,20 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
     
     
     // versucht JSON-Abfrage in Struct Person umzuwandeln
-    func mapUsThePersons(data: JSON) {
+    func mapUsThePersons(data: JSON, faces: [Rectangle]?) {
         do {
-            let newPersons = try data.array().map(Person.init)
+            var newPersons = try data.array().map(Person.init)
+            
+            if faces != nil {
+                var PersonsWithEyes: [Person] = []
+                for face in faces! {
+                    var PersonWithEyes = newPersons.filter({$0.faceRectangle == face})
+                    PersonWithEyes[0].leftEye = face.leftEye
+                    PersonWithEyes[0].rightEye = face.rightEye
+                    PersonsWithEyes.append(PersonWithEyes[0])
+                }
+                newPersons = PersonsWithEyes
+            }
             
             detectedPersons = newPersons
         }
@@ -136,12 +148,33 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
     // API-Abfrage und so
     func askMicrosoftWithAPlease() {
         if let image = pictureImageView.image {
-            MicrosoftProvider.request(.faceEmotion(image), completion: { result in
+            // normale Facedetection
+            MicrosoftProvider.request(.faceDetection(image), completion: { result in
                 switch result {
                 case .Success(let response):
                     do {
                         let json = try JSON(data: response.data)
-                        self.mapUsThePersons(json)
+                        let faces = try json.array().map(Rectangle.init)
+                    
+                        
+                        
+                        // Emotion-Detection mit bereits getaner Face-Detection
+                        self.MicrosoftProvider.request(.faceEmotion(image, faces), completion: { result in
+                            switch result {
+                            case .Success(let response):
+                                do {
+                                    let jsonEmotion = try JSON(data: response.data)
+                                    self.mapUsThePersons(jsonEmotion, faces: faces)
+                                }
+                                catch {
+                                    self.setTitleToError()
+                                }
+                            case .Failure(let error):
+                                self.setTitleToError()
+                                print(error)
+                            }
+                        })
+                        
                     } catch {
                         self.setTitleToError()
                     }
@@ -150,6 +183,7 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
                     print(error)
                 }
             })
+            
         }
         else {
             self.setTitleToError()
@@ -161,25 +195,65 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
     // Malt Smileys aufs Bild
     func drawSmileys() {
         
+        
+        print(detectedPersons)
+        
         guard let image = pictureImageView.image else {return }
         UIGraphicsBeginImageContext(image.size)
         image.drawInRect(CGRectMake(0, 0, image.size.width, image.size.height))
         
+        let context = UIGraphicsGetCurrentContext()
         
         guard let persons = detectedPersons else { return }
+        
+        var width: CGFloat
+        var x: CGFloat
+        var y: CGFloat
+        
+        
         for person in persons {
             
-            // Ein paar Größenkorrekturen
-            // hier wäre eine weitere API-Abfrage an facedetect sinnvoll, da könnte man auch die Smileys entsprechend rotieren
-            let x = person.position.x - 0.2*person.width
-            let y = person.position.y - 0.3*person.height
+            CGContextSaveGState(context)
             
-            let width = 1.4*person.width
-            let height = 1.4*person.height
+            if person.leftEye != CGPointZero { // Falls das mit den Augen gesetzt ist, drehe Koordinatensystem
+                let eyewidth = sqrt(pow(person.rightEye.x - person.leftEye.x, 2) + pow(person.rightEye.y - person.leftEye.y, 2))
+                width = eyewidth/(person.compositedEmotion.eyes.right - person.compositedEmotion.eyes.left)
+                
+                
+                
+                //let x_center =
+                let x_center = CGFloat(0)
+                //let y_center =
+                let y_center = CGFloat(0)
+                
+                let angle = atan2(person.rightEye.y - person.leftEye.y, person.rightEye.x - person.leftEye.x)
+                //let angle = CGFloat(0)
+                
+                CGContextTranslateCTM(context, x_center, y_center)
+                CGContextRotateCTM(context, angle)
+                
+                let newXOfLeftEye = person.leftEye.x*cos(angle) + person.leftEye.y*sin(angle)
+                let newYOfLeftEye = -person.leftEye.x*sin(angle) + person.leftEye.y*cos(angle)
+                
+                x = CGFloat(newXOfLeftEye - person.compositedEmotion.eyes.left*width)
+                y = CGFloat(newYOfLeftEye - person.compositedEmotion.eyes.top*width)
+                
+                
+            }
+            else { // Dann versuchen irgendwie noch zu retten :D
+                x = CGFloat(person.faceRectangle.left)
+                y = CGFloat(person.faceRectangle.top)
+                
+                width = CGFloat(person.faceRectangle.width)
+            }
             
-            var rect: CGRect = CGRectMake(x, y, width , height)
+            var rect: CGRect = CGRectMake(x, y, width , width)
             let textFontAttributes = [NSFontAttributeName: UIFont(name: "Helvetica Bold", size: width)!]
             person.compositedEmotion.description.drawInRect(rect, withAttributes: textFontAttributes)
+            
+
+            CGContextRestoreGState(context)
+            
         }
         var newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         
