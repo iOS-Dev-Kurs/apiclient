@@ -18,6 +18,11 @@ class PlanetViewController: UIViewController {
     }
     
     var planetAPI: MoyaProvider<PlanetAPI>!
+    var planet: Planet? {
+        didSet {
+            self.planetLab.text = planet?.name
+        }
+    }
  
     
     @IBOutlet weak var searchField: UITextField!
@@ -31,12 +36,12 @@ class PlanetViewController: UIViewController {
                 do {
                     try response.filterSuccessfulStatusCodes()
                     // Try to parse the response to JSON
-                    //let json = try JSON(data: response.data)
+                    let json = try JSON(data: response.data)
                     // Try to decode the JSON to the required type
-                    //let pokemonSpecies = try Planet(json: json)
+                    let pokemonSpecies = try Planet(json: json)
                     // Configure view according to model
-                    //self.planet = pokemonSpecies
-                    print(response)
+                    self.planet = pokemonSpecies
+                    print(pokemonSpecies)
                 } catch {
                     print(error)
                 }
