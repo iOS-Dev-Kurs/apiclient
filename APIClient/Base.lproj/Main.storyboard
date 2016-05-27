@@ -35,6 +35,9 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uoy-yF-OJ2">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="Nzg-Bd-HWH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -48,11 +51,14 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="rPr-Fp-ALE" id="J7k-gc-VuH"/>
+                            </connections>
                         </textField>
                     </navigationItem>
                     <connections>
-                        <outlet property="Planet" destination="Uoy-yF-OJ2" id="8nz-aS-DiJ"/>
-                        <outlet property="s" destination="aZK-x1-BeE" id="J5H-jN-cb0"/>
+                        <outlet property="planetLab" destination="Uoy-yF-OJ2" id="rCZ-Uo-aDa"/>
+                        <outlet property="searchField" destination="aZK-x1-BeE" id="A9N-sa-ivp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OaC-W5-AeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
