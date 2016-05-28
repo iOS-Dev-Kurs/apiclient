@@ -7,3 +7,11 @@ pod 'AlamofireImage'
 pod 'AwesomeCache'
 
 target 'APIClient'
+
+target 'APIClientTests' do
+    pod 'Nimble'
+end
+
+target 'APIClientUITests' do
+    pod 'Nimble'
+end
