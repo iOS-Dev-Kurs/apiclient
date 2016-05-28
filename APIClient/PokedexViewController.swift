@@ -121,7 +121,7 @@ extension PokedexViewController {
         
         // Obtain a cell and configure it
         let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonSpeciesCell", for: indexPath) as! PokemonSpeciesCell
-        cell.configureForEntry(pokedex.entries[indexPath.row], pokemonSpecies: pokemonSpecies[indexPath.row], sprite: sprites[indexPath.row])
+        cell.configure(for: pokedex.entries[indexPath.row], pokemonSpecies: pokemonSpecies[indexPath.row], sprite: sprites[indexPath.row])
         if case .loaded = pokemonSpecies[indexPath.row] {
             cell.selectionStyle = .default
         } else {

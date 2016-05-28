@@ -18,7 +18,12 @@ class PokemonSpeciesCell: UITableViewCell {
     @IBOutlet var spriteImageview: UIImageView!
     @IBOutlet var loadingIndicator: UIActivityIndicatorView!
     
-    func configureForEntry(_ entry: Pokedex.Entry, pokemonSpecies: APIResource<PokeAPI, PokemonSpecies>, sprite: APIResource<PokeAPI, Pokemon>?) {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        nameLabel.accessibilityIdentifier = "pokemonSpeciesName"
+    }
+    
+    func configure(for entry: Pokedex.Entry, pokemonSpecies: APIResource<PokeAPI, PokemonSpecies>, sprite: APIResource<PokeAPI, Pokemon>?) {
 
         numberLabel.text = String(entry.number)
         

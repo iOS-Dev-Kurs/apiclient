@@ -33,6 +33,7 @@
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLL-bI-uKs">
                                                     <rect key="frame" x="16" y="0.0" width="504" height="24"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="pokemonSpeciesName"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -224,9 +225,11 @@
                                             </activityIndicatorView>
                                             <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q7g-S6-dCW">
                                                 <rect key="frame" x="-4" y="-9" width="0.0" height="50"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="pokemonSpeciesSprite"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" misplaced="YES" text="Pokemon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wq-gC-FTJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="560" height="33"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="pokemonSpeciesName"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
@@ -241,6 +244,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3S-3o-TP0">
                                         <rect key="frame" x="0.0" y="82" width="560" height="30"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="showPokedexEntries"/>
                                         <state key="normal" title="Show Pokedex Entries"/>
                                         <connections>
                                             <segue destination="g5n-Hy-8X2" kind="presentation" identifier="showPokedexEntry" id="esO-3Q-ivM"/>
@@ -268,6 +272,7 @@
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Find Pokemon by Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="Zmd-Cm-8L4">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="33"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="searchTextfield"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="go"/>
                                             <connections>

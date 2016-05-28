@@ -46,10 +46,10 @@ enum PokeAPI: Moya.TargetType, Cacheable {
         return URLEncoding.default
     }
     
-    // TODO: Provide sample data for testing
     var sampleData: Data {
         switch self {
-        default: return "".data(using: String.Encoding.utf8)!
+        case .pokemonSpecies(let namedResource): return "{\"id\": 1,\"name\": \"\(namedResource.name)\",\"pokedex_numbers\":[{\"entry_number\":1,\"pokedex\":{\"name\":\"kanto\",\"url\":\"http://pokeapi.co/api/v2/pokedex/1/\"}}],\"names\":[{\"name\": \"Bulbasaur\",\"language\":{\"name\":\"en\",\"url\":\"http://pokeapi.co/api/v2/language/9/\"}}],\"flavor_text_entries\":[{\"flavor_text\":\"When the bulb on\nits back grows\nlarge, it appears\nto lose the\nability to stand\non its hind legs.\",\"language\":{\"name\":\"en\",\"url\":\"http://localhost:8000/api/v2/language/9/\"},\"version\":{\"name\":\"red\",\"url\": \"http://localhost:8000/api/v2/version/1/\"}}],\"varieties\":[{\"is_default\":true,\"pokemon\":{\"name\":\"bulbasaur\",\"url\":\"http://pokeapi.co/api/v2/pokemon/1/\"}}]}".data(using: String.Encoding.utf8)!
+        default: return "".data(using: String.Encoding.utf8)! // TODO: Provide more sample data for testing
         }
     }
     
