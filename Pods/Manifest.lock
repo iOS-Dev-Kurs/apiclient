@@ -1,8 +1,5 @@
 PODS:
-  - Alamofire (3.3.1)
-  - AlamofireImage (2.4.0):
-    - Alamofire (~> 3.3)
-  - AwesomeCache (2.0)
+  - Alamofire (3.4.0)
   - Freddy (2.1.0)
   - Moya (6.4.0):
     - Moya/Core (= 6.4.0)
@@ -12,19 +9,15 @@ PODS:
   - Result (2.0.0)
 
 DEPENDENCIES:
-  - AlamofireImage
-  - AwesomeCache
   - Freddy
   - Moya
 
 SPEC CHECKSUMS:
-  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
-  AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
-  AwesomeCache: 5d6839ad139cdcee3c3a067f6fc1849523867dd9
+  Alamofire: c19a627cefd6a95f840401c49ab1f124e07f54ee
   Freddy: bbdca013977db29638b24baf6572ce94452bec29
   Moya: 4d526954c8afd79820991393d40d7d8af756ceee
   Result: 9e75e1111c774c6ac594e14907b15057053a7959
 
-PODFILE CHECKSUM: c0e9678427a45e8df8c132e9f4426049c863138d
+PODFILE CHECKSUM: 3b502932c5e25877f9f15bb94fbdefb1b635e64d
 
 COCOAPODS: 1.0.0
