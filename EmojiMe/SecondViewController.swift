@@ -158,8 +158,6 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
                     do {
                         let json = try JSON(data: response.data)
                         let faces = try json.array().map(Rectangle.init)
-                    
-                        print(faces)
                         
                         // Emotion-Detection mit bereits getaner Face-Detection
                         self.MicrosoftProvider.request(.faceEmotion(image, faces), completion: { result in
@@ -168,8 +166,6 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
                                 do {
                                     let jsonEmotion = try JSON(data: response.data)
                                     self.mapUsThePersons(jsonEmotion, faces: faces)
-                                    
-                                    print(self.detectedPersons)
                                     
                                 }
                                 catch {
