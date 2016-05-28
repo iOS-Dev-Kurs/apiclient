@@ -136,7 +136,8 @@ struct Rectangle: Equatable {
     }
 }
 func ==(lhs: Rectangle, rhs: Rectangle) -> Bool {
-    if lhs.left == rhs.left && lhs.top == rhs.top && lhs.width == rhs.width && lhs.height == rhs.height {
+    let maxDiff = 10
+    if abs(lhs.left - rhs.left) < maxDiff && abs(lhs.top - rhs.top) < maxDiff && abs(lhs.width - rhs.width) < maxDiff && abs(lhs.height - rhs.height) < maxDiff {
         return true
     } else {
         return false

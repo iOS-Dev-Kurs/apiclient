@@ -125,13 +125,16 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
         do {
             var newPersons = try data.array().map(Person.init)
             
+            // Ordne Personen Gesichter zu
             if faces != nil {
                 var PersonsWithEyes: [Person] = []
-                for face in faces! {
-                    var PersonWithEyes = newPersons.filter({$0.faceRectangle == face})
-                    PersonWithEyes[0].leftEye = face.leftEye
-                    PersonWithEyes[0].rightEye = face.rightEye
-                    PersonsWithEyes.append(PersonWithEyes[0])
+                for var person in newPersons {
+                    var PersonWithEyes = faces!.filter({$0 == person.faceRectangle})
+                    if PersonWithEyes.count == 1 {
+                        person.leftEye = PersonWithEyes[0].leftEye
+                        person.rightEye = PersonWithEyes[0].rightEye
+                    }
+                    PersonsWithEyes.append(person)
                 }
                 newPersons = PersonsWithEyes
             }
@@ -156,7 +159,7 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
                         let json = try JSON(data: response.data)
                         let faces = try json.array().map(Rectangle.init)
                     
-                        
+                        print(faces)
                         
                         // Emotion-Detection mit bereits getaner Face-Detection
                         self.MicrosoftProvider.request(.faceEmotion(image, faces), completion: { result in
@@ -165,8 +168,12 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
                                 do {
                                     let jsonEmotion = try JSON(data: response.data)
                                     self.mapUsThePersons(jsonEmotion, faces: faces)
+                                    
+                                    print(self.detectedPersons)
+                                    
                                 }
                                 catch {
+                                    print("was not able to parse emotions")
                                     self.setTitleToError()
                                 }
                             case .Failure(let error):
@@ -176,6 +183,7 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
                         })
                         
                     } catch {
+                        print("was not able to parse faces")
                         self.setTitleToError()
                     }
                 case .Failure(let error):
