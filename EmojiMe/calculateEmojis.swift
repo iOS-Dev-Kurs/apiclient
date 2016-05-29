@@ -13,6 +13,12 @@ import Freddy
 // Verfügbare Emotionen
 enum Emotion {
     case Angry, Contemptuous, Disgusted, Afraid, Happy, Neutral, Sad, Surprised
+    
+    // So noch hinzugefügt
+    case Swipe1, Swipe2, Swipe3, Swipe4, Swipe5, Swipe6, Swipe7, Swipe8, Swipe9, Swipe10
+    
+    static let allValues = [Angry, Contemptuous, Disgusted, Afraid, Happy, Neutral, Sad, Surprised, Swipe1, Swipe2, Swipe3, Swipe4, Swipe5, Swipe6, Swipe7, Swipe8, Swipe9, Swipe10]
+    
     var description: String {
         switch self {
         case .Angry:
@@ -31,37 +37,42 @@ enum Emotion {
             return "😞"
         case .Surprised:
             return "😳"
+            
+            
+        case .Swipe1:
+            return "😷"
+        case .Swipe2:
+            return "😭"
+        case .Swipe3:
+            return "😂"
+        case .Swipe4:
+            return "😎"
+        case .Swipe5:
+            return "🙄"
+        case .Swipe6:
+            return "🤔"
+        case .Swipe7:
+            return "😽"
+        case .Swipe8:
+            return "😻"
+        case .Swipe9:
+            return "😝"
+        case .Swipe10:
+            return "😶"
+            
         default:
             return ""
         }
     }
     // Abstände in Prozent
     var eyes: (left: CGFloat, right: CGFloat, top: CGFloat) {
-        switch self {
-        case .Angry:
-            return (CGFloat(0.36), CGFloat(0.64), CGFloat(0.58))
-        case .Contemptuous:
-            return (CGFloat(0.33), CGFloat(0.66), CGFloat(0.36))
-        case .Disgusted:
-            return (CGFloat(0.4), CGFloat(0.6), CGFloat(0.55))
-        case .Afraid:
-            return (CGFloat(0.36), CGFloat(0.64), CGFloat(0.55))
-        case .Happy:
-            return (CGFloat(0.36), CGFloat(0.64), CGFloat(0.36))
-        case .Neutral:
-            return (CGFloat(0.36), CGFloat(0.64), CGFloat(0.38))
-        case .Sad:
-            return (CGFloat(0.33), CGFloat(0.66), CGFloat(0.58))
-        case .Surprised:
-            return (CGFloat(0.27), CGFloat(0.73), CGFloat(0.49))
-        default:
-            return (0.33, 0.66, 0.4)
-        }
+        // Hier könnte man mit nem Switch verschiedene Größen für die Smileys definieren
+        return (0.33, 0.67, 0.4)
     }
 }
 
 // struct Person
-struct Person {
+struct Person: Equatable, Hashable  {
     var faceRectangle: Rectangle
     
     var leftEye: CGPoint = CGPointZero
@@ -69,8 +80,19 @@ struct Person {
     
 
     var scores: [Emotion: Double] = [:]
-    let compositedEmotion: Emotion
+    var compositedEmotion: Emotion
     
+    var hashValue: Int {
+        return faceRectangle.hashValue
+    }
+    
+}
+func ==(lhs: Person, rhs: Person) -> Bool {
+    if lhs.faceRectangle == rhs.faceRectangle {
+        return true
+    } else {
+        return false
+    }
 }
 
 
@@ -115,7 +137,7 @@ extension Person: JSONDecodable {
     
 }
 
-struct Rectangle: Equatable {
+struct Rectangle: Equatable, Hashable {
     let left: Int
     let top: Int
     let width: Int
@@ -127,12 +149,25 @@ struct Rectangle: Equatable {
     var description: String {
         return "\(left),\(top),\(width),\(height)"
     }
+    var hashValue: Int {
+        get {
+            return "\(left)\(top)\(width)\(height)".hashValue
+        }
+    }
     
     init(left: Int, top: Int, width: Int, height: Int) {
         self.left = left
         self.top = top
         self.width = width
         self.height = height
+    }
+    func contains(x: Int, y: Int) -> Bool {
+        if x >= self.left && x <= self.left + self.width && y >= self.top && y <= self.top + self.height {
+            return true
+        }
+        else {
+            return false
+        }
     }
 }
 func ==(lhs: Rectangle, rhs: Rectangle) -> Bool {

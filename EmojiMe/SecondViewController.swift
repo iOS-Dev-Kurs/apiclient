@@ -21,12 +21,18 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
     let MicrosoftProvider = MoyaProvider<MicrosoftFaces>(endpointClosure: endPointWithAuthentification)
     
     // speichert alle erkannten Personen im Bild
-    // besser: detectedPersons: [Rectangle: Person]
     var detectedPersons: [Person]? {
         didSet {
             drawSmileys()
+            print(detectedPersons)
         }
     }
+    
+    var editOn: Int?
+    var originalImage: UIImage?
+    //let possibleEmotions: [Emotion] = [.Angry, .Contemptuous, .Disgusted, .Afraid, .Happy, .Neutral, .Sad, .Surprised]
+    let possibleEmotions: [Emotion] = Emotion.allValues
+    
     
     // Hintergrund für Start
     let bestOfSmileys = ["🤗", "🙊", "👻", "💁", "😈"]
@@ -45,12 +51,21 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
     }
     func setTitleToError() {
         self.title = "Error 😩"
-        NSTimer.scheduledTimerWithTimeInterval(2.0, target: self, selector: #selector(self.resetTitle), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(self.resetTitle), userInfo: nil, repeats: false)
     }
+    func setTitleToSwipeDescription() {
+        self.title = "Swipe to change Smiley 😼"
+        NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(self.resetTitle), userInfo: nil, repeats: false)
+    }
+    
+    
+   
     
     // Speichert aktuelles Photo und zeigt Status an
     @IBAction func save(sender: AnyObject) {
-        //UIImageWriteToSavedPhotosAlbum(pictureImageView.image!, self, nil, nil)
+        // Blaue Sachen zurücksetzen
+        self.editOn = nil
+        self.drawSmileys()
         
         guard let renderedPicture = self.pictureImageView.image else {return }
         // Sharing is caring
@@ -106,6 +121,9 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
     // lädt Bild in App und handelt API-Abfrage
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            
+            self.originalImage = pickedImage
+            
             clearSubviews()
             pictureImageView.contentMode = .ScaleAspectFit
             pictureImageView.image = pickedImage
@@ -196,13 +214,16 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     
+
+    
     // Malt Smileys aufs Bild
     func drawSmileys() {
         
         
         print(detectedPersons)
         
-        guard let image = pictureImageView.image else {return }
+        //guard let image = pictureImageView.image else {return }
+        guard let image = self.originalImage else {return }
         UIGraphicsBeginImageContext(image.size)
         image.drawInRect(CGRectMake(0, 0, image.size.width, image.size.height))
         
@@ -215,9 +236,11 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
         var y: CGFloat
         
         
-        for person in persons {
+        for i in 0 ... persons.count - 1 {
             
             CGContextSaveGState(context)
+            
+            let person = persons[i]
             
             if person.leftEye != CGPointZero { // Falls das mit den Augen gesetzt ist, drehe Koordinatensystem
                 let eyewidth = sqrt(pow(person.rightEye.x - person.leftEye.x, 2) + pow(person.rightEye.y - person.leftEye.y, 2))
@@ -249,9 +272,21 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
                 y = CGFloat(person.faceRectangle.top)
                 
                 width = CGFloat(person.faceRectangle.width)
+                
+                // Korrekturen
+                x -= width/4
+                y -= width/4
+                width *= 1.5
             }
             
             var rect: CGRect = CGRectMake(x, y, width , width)
+            
+            
+            if i == self.editOn {
+                UIColor.blueColor().setFill()
+                UIRectFill(rect)
+            }
+            
             let textFontAttributes = [NSFontAttributeName: UIFont(name: "Helvetica Bold", size: width)!]
             person.compositedEmotion.description.drawInRect(rect, withAttributes: textFontAttributes)
             
@@ -264,7 +299,70 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
         UIGraphicsEndImageContext()
         
         pictureImageView.image = newImage
+        
+        
         self.resetTitle()
+        
+    }
+    
+    @IBAction func handleTaps(gestureRecognizer: UIGestureRecognizer) {
+        guard let image = self.pictureImageView.image else { return }
+        
+        // Korrigierungen
+        // nehme an, das Bild wird immer in die Mitte gesetzt
+        let imageViewSize = self.pictureImageView.bounds.size
+        let imageSize = image.size
+        let scaleFactor = imageSize.width / imageViewSize.width
+        let distFromTop = (imageViewSize.height - imageSize.height/scaleFactor)/2
+        
+        let tapPoint = gestureRecognizer.locationInView(self.pictureImageView)
+        let x = Int(tapPoint.x * scaleFactor)
+        let y = Int((tapPoint.y - distFromTop) * scaleFactor)
+
+        
+        if var persons = self.detectedPersons {
+            var person = persons.filter({$0.faceRectangle.contains(x, y: y)})
+            
+            
+            if person.count > 0 {
+                if self.editOn != persons.indexOf(person[0]) {
+                    self.editOn = persons.indexOf(person[0])
+                    
+                    
+                }
+                else {
+                    self.editOn = nil
+                }
+                
+                self.drawSmileys()
+                self.setTitleToSwipeDescription()
+                
+            }
+            
+        }
+    }
+    
+    @IBAction func handleSwipes(gestureRecognizer: UISwipeGestureRecognizer) {
+        if self.detectedPersons == nil || self.editOn == nil {
+            return
+        }
+        
+        // Falls Hier irgendwann noch mehr Gesten kommen
+        if gestureRecognizer.direction == .Up || gestureRecognizer.direction == .Down {
+            return
+        }
+        
+        print(gestureRecognizer.direction)
+        
+        guard let index = self.possibleEmotions.indexOf(self.detectedPersons![self.editOn!].compositedEmotion) else { return }
+        var nextIndex: Int
+        if gestureRecognizer.direction == .Left {
+            nextIndex = (index == 0) ? self.possibleEmotions.count - 1 : index - 1
+        }
+        else {
+            nextIndex = (index == self.possibleEmotions.count - 1) ? 0 : index + 1
+        }
+        self.detectedPersons![self.editOn!].compositedEmotion = self.possibleEmotions[nextIndex]
         
     }
     
@@ -299,6 +397,24 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = UIColor.whiteColor()
         changeBackground()
+        
+        
+        self.view.userInteractionEnabled = true
+        
+        
+        let selectorTap: Selector = "handleTaps:"
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: selectorTap)
+        self.pictureImageView.addGestureRecognizer(gestureRecognizer)
+        
+        let selectSwipe: Selector = "handleSwipes:"
+        let swipeRecognizerLeft = UISwipeGestureRecognizer(target: self, action: selectSwipe)
+        swipeRecognizerLeft.direction = .Left
+        self.pictureImageView.addGestureRecognizer(swipeRecognizerLeft)
+        let swipeRecognizerRight = UISwipeGestureRecognizer(target: self, action: selectSwipe)
+        swipeRecognizerRight.direction = .Right
+        self.pictureImageView.addGestureRecognizer(swipeRecognizerRight)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
