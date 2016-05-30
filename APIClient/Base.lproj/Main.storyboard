@@ -44,6 +44,9 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <accessibility key="accessibilityConfiguration" identifier="accessibilityIdentifier">
+                            <bool key="isElement" value="YES"/>
+                        </accessibility>
                         <constraints>
                             <constraint firstItem="Dqp-tj-vib" firstAttribute="top" secondItem="3FD-sJ-Ppt" secondAttribute="bottom" constant="188" id="7Q5-Jo-oly"/>
                             <constraint firstItem="dsf-oM-yOR" firstAttribute="top" secondItem="Dqp-tj-vib" secondAttribute="bottom" constant="267" id="RQN-zO-Pu7"/>
@@ -55,6 +58,7 @@
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Search Planets in Star Wars" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="aZK-x1-BeE">
                             <rect key="frame" x="180" y="7" width="240" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <accessibility key="accessibilityConfiguration" identifier="accessibilityIdentifier"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>

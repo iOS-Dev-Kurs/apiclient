@@ -32,6 +32,7 @@ enum PlanetAPI: Moya.TargetType{
     // TODO: Provide sample data for testing
     var sampleData: NSData {
         switch self {
+        case .planet(let namedResource): return "{\"planets\": \"\(namedResource.name)\",\"planets\":\"Tatooine\"}".dataUsingEncoding(NSUTF8StringEncoding)!
         default: return "".dataUsingEncoding(NSUTF8StringEncoding)!
         }
     }

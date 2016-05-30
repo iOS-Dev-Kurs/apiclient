@@ -16,6 +16,8 @@
 		A0A3FC001CF38D8C00FC6A8C /* PlanetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A3FBFF1CF38D8C00FC6A8C /* PlanetViewController.swift */; };
 		A0A3FC021CF38F6B00FC6A8C /* PlanetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A3FC011CF38F6B00FC6A8C /* PlanetAPI.swift */; };
 		A0A3FC061CF399A400FC6A8C /* Planet.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0A3FC051CF399A400FC6A8C /* Planet.swift */; };
+		A0C330C61CFC959F00442D0F /* PlanetAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C330C51CFC959F00442D0F /* PlanetAPITests.swift */; };
+		A0C330C81CFC9CB700442D0F /* PlanetAPIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C330C71CFC9CB700442D0F /* PlanetAPIUITests.swift */; };
 		A526FDEE5BF2D1BC3C97B9FA /* Pods_APIClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD8A5B3E1266D5298CABE44A /* Pods_APIClient.framework */; };
 		E9294E7F05F2671186BD1359 /* Pods_APIClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFA0A7AA37697BD5CBC3211 /* Pods_APIClientTests.framework */; };
 /* End PBXBuildFile section */
@@ -57,6 +59,8 @@
 		A0A3FBFF1CF38D8C00FC6A8C /* PlanetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetViewController.swift; sourceTree = "<group>"; };
 		A0A3FC011CF38F6B00FC6A8C /* PlanetAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetAPI.swift; sourceTree = "<group>"; };
 		A0A3FC051CF399A400FC6A8C /* Planet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Planet.swift; sourceTree = "<group>"; };
+		A0C330C51CFC959F00442D0F /* PlanetAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetAPITests.swift; sourceTree = "<group>"; };
+		A0C330C71CFC9CB700442D0F /* PlanetAPIUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlanetAPIUITests.swift; sourceTree = "<group>"; };
 		BD8A5B3E1266D5298CABE44A /* Pods_APIClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67B3B3E7990BE278400974F /* Pods-APIClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientUITests/Pods-APIClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F8B9811B1068B05E73195990 /* Pods-APIClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientTests/Pods-APIClientTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				87EC71531CFA380F00FBDDDE /* Info.plist */,
+				A0C330C51CFC959F00442D0F /* PlanetAPITests.swift */,
 			);
 			path = APIClientTests;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				87EC71611CFA381600FBDDDE /* Info.plist */,
+				A0C330C71CFC9CB700442D0F /* PlanetAPIUITests.swift */,
 			);
 			path = APIClientUITests;
 			sourceTree = "<group>";
@@ -489,6 +495,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0C330C61CFC959F00442D0F /* PlanetAPITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -496,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0C330C81CFC9CB700442D0F /* PlanetAPIUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -648,10 +656,12 @@
 			baseConfigurationReference = F8B9811B1068B05E73195990 /* Pods-APIClientTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = APIClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.APIClientTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/APIClient.app/APIClient";
 			};
 			name = Debug;
@@ -661,6 +671,7 @@
 			baseConfigurationReference = 65C820A0F52E3181871F5ECA /* Pods-APIClientTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = APIClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.APIClientTests";
@@ -673,10 +684,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C67B3B3E7990BE278400974F /* Pods-APIClientUITests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = APIClientUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.APIClientUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_TARGET_NAME = APIClient;
 			};
 			name = Debug;
@@ -685,6 +698,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 198B23CD94C6D84016A5208A /* Pods-APIClientUITests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = APIClientUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.APIClientUITests";
