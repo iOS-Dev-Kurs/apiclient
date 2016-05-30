@@ -24,7 +24,7 @@ import AwesomeCache
  You are free to use this utility or implement your own way to keep track of loaded and not loaded resources.
  
  - seealso: MoyaProvider.request<Resource: Freddy.JSONDecodable>(_:completion:)
-*/
+ */
 enum APIResource<Target: Moya.TargetType, Resource: Freddy.JSONDecodable where Target: Cacheable> {
     
     case notLoaded(Target)
