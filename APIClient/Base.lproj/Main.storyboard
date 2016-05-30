@@ -26,21 +26,30 @@
             <objects>
                 <viewController id="rPr-Fp-ALE" customClass="PlanetViewController" customModule="APIClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="g8M-74-ZTL"/>
-                        <viewControllerLayoutGuide type="bottom" id="awQ-VP-YWW"/>
+                        <viewControllerLayoutGuide type="top" id="3FD-sJ-Ppt"/>
+                        <viewControllerLayoutGuide type="bottom" id="dsf-oM-yOR"/>
                     </layoutGuides>
-                    <stackView key="view" opaque="NO" contentMode="scaleToFill" axis="vertical" id="WyT-AH-7qH">
+                    <view key="view" contentMode="scaleToFill" id="7Gz-O5-efr">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uoy-yF-OJ2">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dqp-tj-vib">
+                                <rect key="frame" x="69" y="252" width="289" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="226" id="gaH-rj-BDr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                    </stackView>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Dqp-tj-vib" firstAttribute="top" secondItem="3FD-sJ-Ppt" secondAttribute="bottom" constant="188" id="7Q5-Jo-oly"/>
+                            <constraint firstItem="dsf-oM-yOR" firstAttribute="top" secondItem="Dqp-tj-vib" secondAttribute="bottom" constant="267" id="RQN-zO-Pu7"/>
+                            <constraint firstItem="Dqp-tj-vib" firstAttribute="leading" secondItem="7Gz-O5-efr" secondAttribute="leading" constant="69" id="qIs-MJ-5zD"/>
+                        </constraints>
+                    </view>
                     <navigationItem key="navigationItem" id="CZR-l9-xMg">
                         <nil key="title"/>
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Search Planets in Star Wars" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="aZK-x1-BeE">
@@ -54,7 +63,7 @@
                         </textField>
                     </navigationItem>
                     <connections>
-                        <outlet property="planetLab" destination="Uoy-yF-OJ2" id="rCZ-Uo-aDa"/>
+                        <outlet property="planetLab" destination="Dqp-tj-vib" id="Gg3-nv-wdf"/>
                         <outlet property="searchField" destination="aZK-x1-BeE" id="A9N-sa-ivp"/>
                     </connections>
                 </viewController>
