@@ -11,26 +11,36 @@ import Moya
 import Freddy
 
 
+// Main ViewController
 class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+    // Image-View
     @IBOutlet var pictureImageView: UIImageView!
-    // Buttons und UIImageViewController aus Storyboard
-    
     
     // Provider für API-Abfrage
     let MicrosoftProvider = MoyaProvider<MicrosoftFaces>(endpointClosure: endPointWithAuthentification)
     
     // speichert alle erkannten Personen im Bild
+    // bei Änderungen: Bild updaten
     var detectedPersons: [Person]? {
         didSet {
             drawSmileys()
-            print(detectedPersons)
         }
     }
     
-    var editOn: Int?
+    // speichert, welches Element aus detectedPersons editiert werden soll
+    var editOn: Int? {
+        didSet {
+            drawSmileys()
+            if self.editOn != nil {
+                self.setTitleToSwipeDescription()
+            }
+        }
+    }
+    
+    // speichert Augangsbild
     var originalImage: UIImage?
-    //let possibleEmotions: [Emotion] = [.Angry, .Contemptuous, .Disgusted, .Afraid, .Happy, .Neutral, .Sad, .Surprised]
+    
+    // speichert alle möglichen Emotionen
     let possibleEmotions: [Emotion] = Emotion.allValues
     
     
@@ -63,9 +73,8 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
     
     // Speichert aktuelles Photo und zeigt Status an
     @IBAction func save(sender: AnyObject) {
-        // Blaue Sachen zurücksetzen
+        // Edit verwerfen
         self.editOn = nil
-        self.drawSmileys()
         
         guard let renderedPicture = self.pictureImageView.image else {return }
         // Sharing is caring
@@ -219,10 +228,6 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
     // Malt Smileys aufs Bild
     func drawSmileys() {
         
-        
-        print(detectedPersons)
-        
-        //guard let image = pictureImageView.image else {return }
         guard let image = self.originalImage else {return }
         UIGraphicsBeginImageContext(image.size)
         image.drawInRect(CGRectMake(0, 0, image.size.width, image.size.height))
@@ -305,10 +310,12 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
         
     }
     
+    
+    // Action-Handler für Taps
     @IBAction func handleTaps(gestureRecognizer: UIGestureRecognizer) {
         guard let image = self.pictureImageView.image else { return }
         
-        // Korrigierungen
+        // Korrigierungen (auf Bildkoordinaten umrechnen)
         // nehme an, das Bild wird immer in die Mitte gesetzt
         let imageViewSize = self.pictureImageView.bounds.size
         let imageSize = image.size
@@ -321,38 +328,36 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
 
         
         if var persons = self.detectedPersons {
-            var person = persons.filter({$0.faceRectangle.contains(x, y: y)})
+            var person = persons.filter({$0.faceRectangle.contains(x, y: y)}) // suche nach angetippten Gesicht
             
             
             if person.count > 0 {
+                // setze Edit auf gefundene Person
                 if self.editOn != persons.indexOf(person[0]) {
                     self.editOn = persons.indexOf(person[0])
-                    
-                    
                 }
                 else {
                     self.editOn = nil
                 }
                 
-                self.drawSmileys()
-                self.setTitleToSwipeDescription()
                 
             }
             
         }
     }
     
+    
+    // Action-Handler für Swipes
     @IBAction func handleSwipes(gestureRecognizer: UISwipeGestureRecognizer) {
+        // Falls irgendwas nicht gesetzt
         if self.detectedPersons == nil || self.editOn == nil {
             return
         }
-        
         // Falls Hier irgendwann noch mehr Gesten kommen
         if gestureRecognizer.direction == .Up || gestureRecognizer.direction == .Down {
             return
         }
         
-        print(gestureRecognizer.direction)
         
         guard let index = self.possibleEmotions.indexOf(self.detectedPersons![self.editOn!].compositedEmotion) else { return }
         var nextIndex: Int
@@ -362,17 +367,20 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
         else {
             nextIndex = (index == self.possibleEmotions.count - 1) ? 0 : index + 1
         }
+        // Smiley durchwechseln.
         self.detectedPersons![self.editOn!].compositedEmotion = self.possibleEmotions[nextIndex]
         
     }
     
-    
+    // löscht alle Subviews (Smileys vom Startbildschirm entfernen
     func clearSubviews() {
         for view in self.view.subviews {
             view.removeFromSuperview()
         }
     }
     
+    
+    // selfdocumenting
     func changeBackground() {
         
         clearSubviews()
@@ -380,7 +388,6 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
         let screenSize = UIScreen.mainScreen().bounds.size
         let randomInt = Int(arc4random_uniform(UInt32(bestOfSmileys.count)))
         
-        //UIGraphicsBeginImageContext(CGSize(width: sizeOfStartSmileys, height: sizeOfStartSmileys))
         UIGraphicsBeginImageContext(screenSize)
         let x = 0.5*screenSize.width - 0.5*sizeOfStartSmileys
         let y = 0.5*screenSize.height - 0.5*sizeOfStartSmileys
@@ -399,6 +406,8 @@ class MainViewControlloer: UIViewController, UIImagePickerControllerDelegate, UI
         changeBackground()
         
         
+        
+        // Taps- und Swipes registrieren
         self.view.userInteractionEnabled = true
         
         

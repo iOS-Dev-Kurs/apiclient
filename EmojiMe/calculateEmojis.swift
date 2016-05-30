@@ -82,6 +82,7 @@ struct Person: Equatable, Hashable  {
     var scores: [Emotion: Double] = [:]
     var compositedEmotion: Emotion
     
+    // Könnte man für bessere Zuordnung mal gebrauchen
     var hashValue: Int {
         return faceRectangle.hashValue
     }
@@ -149,6 +150,8 @@ struct Rectangle: Equatable, Hashable {
     var description: String {
         return "\(left),\(top),\(width),\(height)"
     }
+    
+    // Hashable
     var hashValue: Int {
         get {
             return "\(left)\(top)\(width)\(height)".hashValue
