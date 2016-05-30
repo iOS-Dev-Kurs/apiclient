@@ -17,7 +17,7 @@ enum PlanetAPI: Moya.TargetType{
     
     var path: String {
         switch self{
-        case .planet(let namedResource): return "/planets/(namedResource)"
+        case .planet(let namedResource): return "/planets/\(namedResource.name)"
         }
     }
     
