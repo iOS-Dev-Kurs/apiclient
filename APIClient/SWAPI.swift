@@ -13,18 +13,18 @@ import Freddy
 
 //adress of the used API: ("http://swapi.co/api/")
 
-enum SWAPI: Moya.TargetType {
+enum SWAPI: Moya.TargetType, Cacheable {
     
-    case starship (NamedResource<starship>)
-    case planet (NamedResource<planets>)
-    case species (NamedResource<species>)
+    case starships (NamedResource<Starships>)
+    case planets (NamedResource<Planets>)
+    case species (NamedResource<Species>)
     
     var baseURL: NSURL {return NSURL(string: "http://swapi.co/api/")! }
     
     var path : String {
         switch self {
-        case .starship(let namedResource): return "/starships/\(namedResource.name)"
-        case .planet(let namedResource): return "/planets/\(namedResource.name)"
+        case .starships(let namedResource): return "/starships/\(namedResource.name)"
+        case .planets(let namedResource): return "/planets/\(namedResource.name)"
         case .species(let namedResource): return "/species/\(namedResource.name)"
         }
     }
@@ -40,4 +40,23 @@ enum SWAPI: Moya.TargetType {
     var sampleData: NSData {
         return "".dataUsingEncoding(NSUTF8StringEncoding)!
     }
+    
+    var cacheIdentifier: String {
+        return self.path
+    }
+}
+
+
+struct NamedResource<Resource: Freddy.JSONDecodable>: Freddy.JSONDecodable {
+    
+    let name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    init(json: JSON) throws {
+        self.name = try json.string("name")
+    }
+    
 }
