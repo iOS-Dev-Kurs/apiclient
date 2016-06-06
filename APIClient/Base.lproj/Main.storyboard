@@ -21,10 +21,10 @@
             </objects>
             <point key="canvasLocation" x="-658" y="301"/>
         </scene>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="adh-8k-Iuh">
             <objects>
-                <viewController id="rPr-Fp-ALE" sceneMemberID="viewController">
+                <viewController id="rPr-Fp-ALE" customClass="SearchViewController" customModule="APIClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pj8-zF-1z6"/>
                         <viewControllerLayoutGuide type="bottom" id="kt2-9S-3TK"/>
@@ -32,13 +32,89 @@
                     <view key="view" contentMode="scaleToFill" id="rEB-Za-Zhx">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Search figure: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zd2-af-zuT">
+                                <rect key="frame" x="244" y="269" width="112" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H5e-9H-f5E">
+                                <rect key="frame" x="285" y="360" width="30" height="30"/>
+                                <state key="normal" title="Go!"/>
+                                <connections>
+                                    <action selector="buttonLoad:" destination="rPr-Fp-ALE" eventType="touchUpInside" id="bZ7-Mp-YNV"/>
+                                    <segue destination="rmB-OI-du2" kind="show" identifier="showInformation" id="xkT-uw-BRN"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Insert number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HlY-os-WRA">
+                                <rect key="frame" x="213" y="310" width="175" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="H5e-9H-f5E" firstAttribute="centerX" secondItem="rEB-Za-Zhx" secondAttribute="centerX" id="505-p9-PEk"/>
+                            <constraint firstItem="H5e-9H-f5E" firstAttribute="top" secondItem="HlY-os-WRA" secondAttribute="bottom" constant="20" id="DBB-1o-Z3f"/>
+                            <constraint firstItem="HlY-os-WRA" firstAttribute="centerX" secondItem="rEB-Za-Zhx" secondAttribute="centerX" id="sNM-Ql-U1b"/>
+                            <constraint firstItem="HlY-os-WRA" firstAttribute="top" secondItem="Zd2-af-zuT" secondAttribute="bottom" constant="20" id="sej-7h-Vkx"/>
+                            <constraint firstItem="Zd2-af-zuT" firstAttribute="centerX" secondItem="rEB-Za-Zhx" secondAttribute="centerX" id="su2-iS-b8o"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CZR-l9-xMg"/>
+                    <connections>
+                        <outlet property="searchTextfield" destination="HlY-os-WRA" id="6zD-aD-aZt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OaC-W5-AeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65" y="301"/>
+            <point key="canvasLocation" x="37" y="301"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="wBJ-wF-cEe">
+            <objects>
+                <tableViewController id="lhn-MO-7VP" customClass="InformationViewController" customModule="APIClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="MTx-Cg-gQR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="RlR-tB-qRG">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RlR-tB-qRG" id="8io-BW-xFk">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lhn-MO-7VP" id="CVA-0W-olf"/>
+                            <outlet property="delegate" destination="lhn-MO-7VP" id="849-cW-9yX"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="ERA-79-dt6"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hvB-kT-uWs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1453" y="301"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="9v4-Ea-JB4">
+            <objects>
+                <navigationController id="rmB-OI-du2" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="v4K-QS-803">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lhn-MO-7VP" kind="relationship" relationship="rootViewController" id="da9-yw-RwI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VDL-Gx-K3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="733" y="301"/>
         </scene>
     </scenes>
 </document>
