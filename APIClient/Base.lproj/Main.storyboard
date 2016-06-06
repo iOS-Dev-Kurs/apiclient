@@ -21,24 +21,49 @@
             </objects>
             <point key="canvasLocation" x="-658" y="301"/>
         </scene>
-        <!--View Controller-->
+        <!--Planet View Controller-->
         <scene sceneID="adh-8k-Iuh">
             <objects>
-                <viewController id="rPr-Fp-ALE" sceneMemberID="viewController">
+                <viewController id="rPr-Fp-ALE" customClass="PlanetViewController" customModule="APIClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pj8-zF-1z6"/>
-                        <viewControllerLayoutGuide type="bottom" id="kt2-9S-3TK"/>
+                        <viewControllerLayoutGuide type="top" id="f6Z-3s-u9f"/>
+                        <viewControllerLayoutGuide type="bottom" id="pln-gQ-e42"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rEB-Za-Zhx">
+                    <view key="view" contentMode="scaleToFill" id="hTc-Zo-8Gz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QsS-35-5PT">
+                                <rect key="frame" x="57" y="248" width="196" height="81"/>
+                                <accessibility key="accessibilityConfiguration" identifier="planetName"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="CZR-l9-xMg"/>
+                    <navigationItem key="navigationItem" id="CZR-l9-xMg">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="aZK-x1-BeE">
+                            <rect key="frame" x="180" y="7" width="240" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <accessibility key="accessibilityConfiguration" identifier="searchField"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="rPr-Fp-ALE" id="J7k-gc-VuH"/>
+                            </connections>
+                        </textField>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="planetLab" destination="QsS-35-5PT" id="v1j-do-2DM"/>
+                        <outlet property="searchField" destination="aZK-x1-BeE" id="A9N-sa-ivp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OaC-W5-AeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65" y="301"/>
+            <point key="canvasLocation" x="77" y="301"/>
         </scene>
     </scenes>
 </document>
