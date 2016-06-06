@@ -19,7 +19,7 @@ enum SWAPI: Moya.TargetType, Cacheable {
     case planets (NamedResource<Planets>)
     case species (NamedResource<Species>)
     
-    var baseURL: NSURL {return NSURL(string: "http://swapi.co/api/")! }
+    var baseURL: NSURL {return NSURL(string: "http://swapi.co/api")! }
     
     var path : String {
         switch self {
@@ -38,7 +38,35 @@ enum SWAPI: Moya.TargetType, Cacheable {
     }
     
     var sampleData: NSData {
-        return "".dataUsingEncoding(NSUTF8StringEncoding)!
+        switch self {
+//        case .starships(let namedResource):
+//            return
+//            "name": "CR90 corvette",
+//            "model": "CR90 corvette",
+//            "manufacturer": "Corellian Engineering Corporation",
+//            "cost_in_credits": "3500000",
+//            "length": "150",
+//            "max_atmosphering_speed": "950",
+//            "crew": "165",
+//            "passengers": "600",
+//            "cargo_capacity": "3000000",
+//            "consumables": "1 year",
+//            "hyperdrive_rating": "2.0",
+//            "MGLT": "60",
+//            "starship_class": "corvette",
+//            "pilots": [],
+//            "films": [
+//            "http://swapi.co/api/films/6/",
+//            "http://swapi.co/api/films/3/",
+//            "http://swapi.co/api/films/1/"
+//            ],
+//            "created": "2014-12-10T14:20:33.369000Z",
+//            "edited": "2014-12-22T17:35:45.408368Z",
+//            "url": "http://swapi.co/api/starships/2/"
+//        .dataUsingEncoding(NSUTF8StringEncoding)!
+        default:
+            return "".dataUsingEncoding(NSUTF8StringEncoding)!
+        }
     }
     
     var cacheIdentifier: String {

@@ -11,7 +11,18 @@ import Freddy
 import Moya
 import AlamofireImage
 
-class StarWarsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class StarWarsViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.sWPickerView.dataSource = self
+        self.sWPickerView.delegate = self
+        self.entrieDataSS = nil
+        self.entrieDataSS = nil
+        self.entrieDataSp = nil
+        pickerLabel.text = "Select a \(selectedEndpoint):"
+        numberSelection.delegate = self
+    }
     
     var starWAPI : MoyaProvider<SWAPI>!
     
@@ -63,29 +74,22 @@ class StarWarsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         sender.resignFirstResponder()
         switch selectedEndpoint {
         case "Starship":
-            loadStarship(NamedResource(name: String(numberSelection)))
+            loadStarship(NamedResource(name: numberSelection.text ?? ""))
         case "Planet":
-            loadPlanet(NamedResource(name: String(numberSelection)))
-        case "Specie":
-            loadSpecies(NamedResource(name: String(numberSelection)))
+            loadPlanet(NamedResource(name: numberSelection.text ?? ""))
+        case "Species":
+            loadSpecies(NamedResource(name: numberSelection.text ?? ""))
         default:
             break
         }
     }
     
-    let pickerData = ["Starship","Planet","Specie"]
+    let pickerData = ["Starship","Planet","Species"]
         
-    private var selectedEndpoint = ""
+    private var selectedEndpoint = "Starship"
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.sWPickerView.dataSource = self
-        self.sWPickerView.delegate = self
-        self.entrieDataSS = nil
-        self.entrieDataSS = nil
-        self.entrieDataSp = nil
-    }
+    
     
 //    Functions to initialize UIPickerView
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -98,8 +102,9 @@ class StarWarsViewController: UIViewController, UIPickerViewDataSource, UIPicker
         return pickerData[row]
     }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pickerLabel.text = "Select a \(pickerData[row]):"
+//        pickerLabel.text = "Select a \(pickerData[row]):"
         selectedEndpoint = pickerData[row]
+        pickerLabel.text = "Select a \(selectedEndpoint):"
     }
     
 //    load selected Endpoint from API URL
