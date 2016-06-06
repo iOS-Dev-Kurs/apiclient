@@ -9,18 +9,18 @@
 import UIKit
 import Freddy
 import Moya
-/*
+
 class trackViewController: UITableViewController {
 	var kanyeAPI: MoyaProvider<kanyeREST>!
 	
-	var trackAlbum: Album!
-	var alltracks: [Track]!
+	var trackAlbum: Album?
+	var alltracks: [Track]?
 
 	//var tracks: [APIResource<kanyeREST, Track>]!
 	
 	// MARK: User Interaction
 	
-	override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+	/*override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
 		switch identifier {
 		case "showDetail":
 			if let indexPath = tableView.indexPathForSelectedRow, case .loaded = tracks[indexPath.row] {
@@ -31,7 +31,7 @@ class trackViewController: UITableViewController {
 		default:
 			return true
 		}
-	}
+	}*/
 	
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 		switch segue.identifier! {
@@ -42,7 +42,7 @@ class trackViewController: UITableViewController {
 			guard let indexPath = tableView.indexPathForSelectedRow else {
 				return
 			}
-			let selectedTrack = tracks[indexPath.row]
+			let selectedTrack = alltracks![indexPath.row]
 			trackDetailViewController.kanyeAPI = kanyeAPI
 			trackDetailViewController.track = selectedTrack
 		default:
@@ -62,31 +62,17 @@ extension trackViewController {
 	}
 	
 	override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return alltracks.count
+		return alltracks!.count
 	}
+	
 	
 	override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		
-		// Load the resource for this row if necessary
-		if case .notLoaded(let target) = tracks[indexPath.row] {
-			tracks[indexPath.row] = kanyeAPI.request(target) { result in
-				self.tracks[indexPath.row] = result
-				tableView.reloadRowsAtIndexPaths([ indexPath ], withRowAnimation: .Fade)
-			}
-		}
-		
 		// Obtain a cell and configure it
 		let cell = tableView.dequeueReusableCellWithIdentifier("trackCell", forIndexPath: indexPath) as! trackCell
-		cell.configureForEntry(alltracks[indexPath.row])
-		if case .loaded = tracks[indexPath.row] {
-			cell.selectionStyle = .Default
-			cell.accessoryType = .DisclosureIndicator
-		} else {
-			cell.selectionStyle = .None
-			cell.accessoryType = .None
-		}
+		let track = alltracks![indexPath.row]
+		cell.configureForEntry(track)
 		return cell
 	}
 	
 }
-*/

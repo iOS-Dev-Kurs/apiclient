@@ -9,31 +9,21 @@
 import Foundation
 import Freddy
 
-/*
-/// A Pokedex contains the Pokemon species encountered in a specific region of the Pokemon world
-struct Album: JSONDecodable {
+
+struct Album {
 	
 	let name: String
-	let tracks: [track]
+	let tracks: [Track]
 	
-	struct track: JSONDecodable {
-		
-		//		let track: NamedResource<Track>
-		
-		init(json: JSON) throws {
-			self.track = try json.decode("title")
-		}
+	init(tracksfetched: [Track]){
+		tracks = tracksfetched
+		name = tracksfetched[0].album
 	}
-	
-	init(json: JSON) throws {
-		self.name = try json.string("album")
-		self.tracks = try json.arrayOf("title") //write func
-	}
-	
-	init(title: String){
-		self.name = title
-		self.tracks = try json.arrayOf("title")
-	}
-	
 }
-*/
+
+extension Album: JSONDecodable {
+	public init(json: JSON) throws {
+		name = try json.string("album")
+		tracks = try json.arrayOf("title") //write func
+	}
+}

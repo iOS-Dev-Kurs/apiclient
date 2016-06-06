@@ -16,4 +16,12 @@ class trackDetailViewController: UIViewController {
 	var kanyeAPI: MoyaProvider<kanyeREST>!
 	var track: Track!
 
+	@IBOutlet var lyricsLabel: UITextView!
+	
+	override func viewDidLoad() {
+		self.lyricsLabel.text = self.track!.lyrics
+		self.lyricsLabel.editable = false
+		self.title = self.track!.title + " / " + self.track!.album
+	}
+
 }

@@ -8,11 +8,12 @@
 import Foundation
 
 import UIKit
-import Freddy
-import Moya
 
-/*class albumCell: UITableViewCell {
-	func configureForEntry(album: Album) {
+class albumCell: UITableViewCell {
+	func configurewithalbum(album: Album) {
 		textLabel?.text = album.name
 	}
-}*/
+	func configurewithstring(title: String) {
+		textLabel?.text = title
+	}
+}

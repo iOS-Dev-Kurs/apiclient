@@ -17,6 +17,9 @@ class APIViewController: UIViewController {
 	var target = kanyeREST.track(title: "good_morning")
 	var fetchedtrack: Track!
 	
+	var allalbums: [Album] = []
+	var allalbumnames: [String]!
+	
 	@IBOutlet private var lyricsLabel: UILabel!
 	
 	override func viewDidLoad() {
@@ -39,6 +42,31 @@ class APIViewController: UIViewController {
 				}
 			case .Failure(let error):
 				print(error)
+			}
+		}
+		
+		for albumname in allalbumnames{
+			kanyeAPI.request(kanyeREST.album(title: albumname)){
+				result in
+				//print(title)
+				switch result {
+				case .Success(let response):
+					do {
+						try response.filterSuccessfulStatusCodes()
+						print(response)
+						let json = try JSON(data: response.data)
+						let tracks = try json.array("result").map(Track.init)
+						self.allalbums.append(Album(tracksfetched: tracks))
+						print(self.allalbums[0])
+					} catch {
+						print(error)
+						break
+					}
+				case .Failure(let error):
+					print("failure")
+					print(error)
+					break
+				}
 			}
 		}
 		

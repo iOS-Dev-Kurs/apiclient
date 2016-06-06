@@ -296,6 +296,7 @@
 				TargetAttributes = {
 					874D06541CEF295E009A494D = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 5NV62CF7F7;
 					};
 					87EC714E1CFA380F00FBDDDE = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -650,10 +651,13 @@
 			baseConfigurationReference = 93EFAB13AE62F1B6FB2683B2 /* Pods-APIClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = APIClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.APIClient";
 				PRODUCT_NAME = kanyeAPIClient;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -662,10 +666,13 @@
 			baseConfigurationReference = FFE13D543A95D28F27CFBDA4 /* Pods-APIClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = APIClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.APIClient";
 				PRODUCT_NAME = kanyeAPIClient;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

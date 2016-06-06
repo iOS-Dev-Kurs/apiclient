@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="K22-lG-r0T" kind="relationship" relationship="rootViewController" id="HYs-2H-VqK"/>
+                        <segue destination="DR2-xt-xbP" kind="relationship" relationship="rootViewController" id="Peu-Dz-cGv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfS-9i-aMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -46,7 +46,7 @@
                                             <constraint firstAttribute="width" secondItem="ySA-MQ-pZ6" secondAttribute="height" multiplier="2:1" id="RpE-R8-06Z"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                         <variation key="default">
                                             <mask key="constraints">
@@ -83,27 +83,19 @@
         <!--album View Controller-->
         <scene sceneID="esf-vQ-Cgq">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4m3-w5-SV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="DR2-xt-xbP" userLabel="album View Controller" customClass="albumViewController" customModule="kanyeAPIClient" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Y0e-Td-7QO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="rd5-Wf-lrj" style="IBUITableViewCellStyleDefault" id="XwV-Px-sya" customClass="albumCell" customModule="kanyeAPIClient" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="albumCell" id="XwV-Px-sya" customClass="albumCell" customModule="kanyeAPIClient" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XwV-Px-sya" id="rNR-ak-bfI">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rd5-Wf-lrj">
-                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="LaT-8V-1np" kind="show" identifier="showTracks" id="JsA-Iw-Dlj"/>
@@ -115,13 +107,10 @@
                             <outlet property="delegate" destination="DR2-xt-xbP" id="c3o-N7-OUb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Jxa-vf-jh3">
-                        <barButtonItem key="rightBarButtonItem" title="Stats" id="vFh-na-9vP"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="Jxa-vf-jh3"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4m3-w5-SV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="748" y="1193"/>
+            <point key="canvasLocation" x="110" y="1089"/>
         </scene>
         <!--track View Controller-->
         <scene sceneID="Wju-gh-3ms">
@@ -132,8 +121,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="djr-oV-XxG" style="IBUITableViewCellStyleDefault" id="o8w-53-FCd" customClass="trackCell" customModule="kanyeAPIClient" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackCell" textLabel="djr-oV-XxG" style="IBUITableViewCellStyleDefault" id="o8w-53-FCd" customClass="trackCell" customModule="kanyeAPIClient" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o8w-53-FCd" id="QA7-Ep-SwC">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -143,7 +132,7 @@
                                             <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -164,7 +153,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cfd-bq-lZv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1506" y="1193"/>
+            <point key="canvasLocation" x="868" y="1089"/>
         </scene>
         <!--track Detail-->
         <scene sceneID="jUK-k3-fgA">
@@ -177,13 +166,30 @@
                     <view key="view" contentMode="scaleToFill" id="oSV-nQ-QER">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="epB-jB-g6D">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="epB-jB-g6D" firstAttribute="top" secondItem="oSV-nQ-QER" secondAttribute="top" constant="64" id="2qp-j0-fz8"/>
+                            <constraint firstItem="epB-jB-g6D" firstAttribute="rightMargin" secondItem="oSV-nQ-QER" secondAttribute="rightMargin" id="8tE-pD-lgw"/>
+                            <constraint firstItem="epB-jB-g6D" firstAttribute="leftMargin" secondItem="oSV-nQ-QER" secondAttribute="leftMargin" id="K0t-wu-hdC"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Details" id="Mem-im-QOe"/>
+                    <connections>
+                        <outlet property="lyricsLabel" destination="epB-jB-g6D" id="uhy-ZX-45I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PnC-Ql-DbW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2290" y="1193"/>
+            <point key="canvasLocation" x="1652" y="1089"/>
         </scene>
     </scenes>
 </document>
