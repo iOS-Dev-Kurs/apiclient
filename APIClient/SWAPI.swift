@@ -8,7 +8,7 @@ import Freddy
 
 
 /// The abstraction of the [SWAPI](http://swapi.co) REST API.
-enum SWAPI: Moya.TargetType {
+enum SWAPI: Moya.TargetType, Cacheable {
     
     
     /// MARK: Endpoints
@@ -37,12 +37,17 @@ enum SWAPI: Moya.TargetType {
             default: return nil
             }
     }
-    
+  
     // TODO: Provide sample data for testing
     var sampleData: NSData {
         switch self {
-        default: return "".dataUsingEncoding(NSUTF8StringEncoding)!
+        case .planets(let namedResource): return "{\"name\":Tatooine,\"rotation_period\":23,\"orbital_period\":304,\"diameter\":10465,\"climate\":arid,\"gravity\":1}".dataUsingEncoding(NSUTF8StringEncoding)!
+        default: return "".dataUsingEncoding(NSUTF8StringEncoding)! // TODO: Provide more sample data for testing
         }
+    }
+    
+    var cacheIdentifier: String {
+        return self.path
     }
 }
 
@@ -59,12 +64,3 @@ struct NamedResource<Resource: Freddy.JSONDecodable>: Freddy.JSONDecodable {
     }
     
 }
-
-
-
-
-
-
-
-
-

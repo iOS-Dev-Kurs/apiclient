@@ -19,16 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
-        if let starwarsViewController = (window?.rootViewController as? UINavigationController)?.topViewController as? SWViewController {
-            
-            // Pass the SWAPI Provider on to the root view controller
-            starwarsViewController.swAPI = swAPI
-            
-        }
-        
         return true
     }
 
 }
-

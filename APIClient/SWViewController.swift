@@ -4,38 +4,66 @@
 //
 
 import UIKit
+import Freddy
 import Moya
+import AlamofireImage
 
-
-
-class SWViewController: UITableViewController, UITextFieldDelegate {
+class SWViewController: UIViewController {
     
     /// The SWAPI provider that handles requests for server resources
     var swAPI: MoyaProvider<SWAPI>!
     
     
-    @IBOutlet var Laden: UIButton!
-    @IBOutlet var Textfeld: UITextField!
+    
+    var swPlanet: SWPlanet? {
+        didSet {
+            // Configure view
+            self.searchTextfield.text = swPlanet?.name
+            self.diameterLabel.text = swPlanet?.diameter
+            self.rotation_periodLabel.text = swPlanet?.rotation_period
+            self.orbital_periodLabel.text = swPlanet?.orbital_period
+            self.gravityLabel.text = swPlanet?.gravity
+        }
+    }
+
+    // MARK: Interface Elements
+    
+    @IBOutlet var searchTextfield: UITextField!
+    @IBOutlet var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet var diameterLabel: UILabel!
+    @IBOutlet var rotation_periodLabel: UILabel!
+    @IBOutlet var orbital_periodLabel: UILabel!
+    @IBOutlet var gravityLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Handle the text field’s user input through delegate callbacks.
-        Textfeld.delegate = self
+        self.swPlanet = nil
     }
     
     
     // MARK: Actions
-    
-    @IBAction func PerformRequest(sender: UIButton) {
-        swAPI.request(swAPI) {result in
+
+    @IBAction func Search(sender: AnyObject) {
+        textFieldShouldReturn(self.searchTextfield)
+    }
+
+    // MARK: Loading Resources
+
+    func loadSWPlanet(swPlanet: NamedResource<SWPlanet>) {
+        loadingIndicator.startAnimating()
+        swAPI.request(.planets(swPlanet)) { result in
+            self.loadingIndicator.stopAnimating()
             switch result {
             case .Success(let response):
                 do {
                     try response.filterSuccessfulStatusCodes()
-                    print(response)
-                    let json = try JSON (data: reponse.data)
+                    // Try to parse the response to JSON
+                    let json = try JSON(data: response.data)
+                    // Try to decode the JSON to the required type
+                    let swPlanet = try SWPlanet(json: json)
+                    // Configure view according to model
+                    self.swPlanet = swPlanet
                 } catch {
                     print(error)
                 }
@@ -43,26 +71,17 @@ class SWViewController: UITableViewController, UITextFieldDelegate {
                 print(error)
             }
         }
-        
-        
-        
-        
+    }
+
+    // MARK: User Interaction
+
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        guard let name = textField.text else {
+            return true
+        }
+        let SWPLanet =  NamedResource<SWPlanet>(name: name)
+        self.loadSWPlanet(SWPLanet)
+        return true
     }
 }
-
-extension SWViewController {
-     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-      }
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
-    return cell
-    }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    
-    }
-}
-
 
