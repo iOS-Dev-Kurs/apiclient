@@ -10,12 +10,23 @@ import Foundation
 import XCTest
 import Nimble
 
+
 class PlanetAPIUITests: XCTestCase {
+
+    private func waitForResponsiveness() {
+        let wait = expectationWithDescription("wait")
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC))), dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0)) {
+            wait.fulfill()
+        }
+        waitForExpectationsWithTimeout(10, handler: nil)
+    }
+    
     
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
         XCUIApplication().launch()
+        waitForResponsiveness()
     }
     
     
@@ -24,14 +35,21 @@ class PlanetAPIUITests: XCTestCase {
         
         let searchTextfield = app.textFields["searchField"]
         
-        //expect(searchTextfield.label).notTo(beEmpty())
+        expect(searchTextfield.label).to(beEmpty())
         
-        searchTextfield.clearAndEnterText("1")
+        searchTextfield.tap()
         
-        //let resultLabel = app.staticTexts["planetLab"]
-        //expect(resultLabel.label).toEventually(equal("Tatooine"), timeout: 10)
+        searchTextfield.typeText("1\n")
+        
+        let resultLabel = app.staticTexts["planetName"]
+        expect(resultLabel.label).toEventually(equal("Tatooine"), timeout: 10)
     }
+    
+    
+    
 }
+
+
 
 extension XCUIElement {
     /**

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="E10-YL-lxp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="E10-YL-lxp">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -26,37 +26,26 @@
             <objects>
                 <viewController id="rPr-Fp-ALE" customClass="PlanetViewController" customModule="APIClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="3FD-sJ-Ppt"/>
-                        <viewControllerLayoutGuide type="bottom" id="dsf-oM-yOR"/>
+                        <viewControllerLayoutGuide type="top" id="f6Z-3s-u9f"/>
+                        <viewControllerLayoutGuide type="bottom" id="pln-gQ-e42"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="7Gz-O5-efr">
+                    <view key="view" contentMode="scaleToFill" id="hTc-Zo-8Gz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dqp-tj-vib">
-                                <rect key="frame" x="69" y="252" width="289" height="81"/>
-                                <accessibility key="accessibilityConfiguration" identifier="planetLab"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="226" id="gaH-rj-BDr"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QsS-35-5PT">
+                                <rect key="frame" x="57" y="248" width="196" height="81"/>
+                                <accessibility key="accessibilityConfiguration" identifier="planetName"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <accessibility key="accessibilityConfiguration" identifier="accessibilityIdentifier">
-                            <bool key="isElement" value="YES"/>
-                        </accessibility>
-                        <constraints>
-                            <constraint firstItem="Dqp-tj-vib" firstAttribute="top" secondItem="3FD-sJ-Ppt" secondAttribute="bottom" constant="188" id="7Q5-Jo-oly"/>
-                            <constraint firstItem="dsf-oM-yOR" firstAttribute="top" secondItem="Dqp-tj-vib" secondAttribute="bottom" constant="267" id="RQN-zO-Pu7"/>
-                            <constraint firstItem="Dqp-tj-vib" firstAttribute="leading" secondItem="7Gz-O5-efr" secondAttribute="leading" constant="69" id="qIs-MJ-5zD"/>
-                        </constraints>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="CZR-l9-xMg">
                         <nil key="title"/>
-                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Search Planets in Star Wars" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="aZK-x1-BeE">
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="aZK-x1-BeE">
                             <rect key="frame" x="180" y="7" width="240" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <accessibility key="accessibilityConfiguration" identifier="searchField"/>
@@ -68,7 +57,7 @@
                         </textField>
                     </navigationItem>
                     <connections>
-                        <outlet property="planetLab" destination="Dqp-tj-vib" id="Gg3-nv-wdf"/>
+                        <outlet property="planetLab" destination="QsS-35-5PT" id="v1j-do-2DM"/>
                         <outlet property="searchField" destination="aZK-x1-BeE" id="A9N-sa-ivp"/>
                     </connections>
                 </viewController>
