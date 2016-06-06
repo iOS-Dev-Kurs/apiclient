@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		078B558C6C77F3C6DCDC4678 /* Pods_APIClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82531BA6D6228998A00AB5B6 /* Pods_APIClientUITests.framework */; };
+		830DA5871CF437F100203B41 /* StarWarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830DA5861CF437F100203B41 /* StarWarsViewController.swift */; };
+		830DA5891CF57DEE00203B41 /* SWAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830DA5881CF57DEE00203B41 /* SWAPI.swift */; };
+		83229B671CFC842800FF94B7 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83229B661CFC842800FF94B7 /* Structs.swift */; };
+		835E5DB91D0440A300FD7CC3 /* MyAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835E5DB81D0440A300FD7CC3 /* MyAPITests.swift */; };
 		872A275C1CF0D87100A988C4 /* APIResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872A275B1CF0D87100A988C4 /* APIResource.swift */; };
 		874D06591CEF295E009A494D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874D06581CEF295E009A494D /* AppDelegate.swift */; };
 		874D065E1CEF295E009A494D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 874D065C1CEF295E009A494D /* Main.storyboard */; };
@@ -39,6 +43,10 @@
 		4FFA0A7AA37697BD5CBC3211 /* Pods_APIClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C820A0F52E3181871F5ECA /* Pods-APIClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientTests/Pods-APIClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		82531BA6D6228998A00AB5B6 /* Pods_APIClientUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIClientUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		830DA5861CF437F100203B41 /* StarWarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarWarsViewController.swift; sourceTree = "<group>"; };
+		830DA5881CF57DEE00203B41 /* SWAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWAPI.swift; sourceTree = "<group>"; };
+		83229B661CFC842800FF94B7 /* Structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
+		835E5DB81D0440A300FD7CC3 /* MyAPITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAPITests.swift; sourceTree = "<group>"; };
 		872A275B1CF0D87100A988C4 /* APIResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResource.swift; sourceTree = "<group>"; };
 		874D06551CEF295E009A494D /* APIClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APIClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		874D06581CEF295E009A494D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +96,7 @@
 		872A27571CF0D4E200A988C4 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				830DA5861CF437F100203B41 /* StarWarsViewController.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -103,6 +112,8 @@
 			isa = PBXGroup;
 			children = (
 				872A275B1CF0D87100A988C4 /* APIResource.swift */,
+				830DA5881CF57DEE00203B41 /* SWAPI.swift */,
+				83229B661CFC842800FF94B7 /* Structs.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -156,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				87EC71531CFA380F00FBDDDE /* Info.plist */,
+				835E5DB81D0440A300FD7CC3 /* MyAPITests.swift */,
 			);
 			path = APIClientTests;
 			sourceTree = "<group>";
@@ -468,7 +480,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				830DA5871CF437F100203B41 /* StarWarsViewController.swift in Sources */,
 				872A275C1CF0D87100A988C4 /* APIResource.swift in Sources */,
+				83229B671CFC842800FF94B7 /* Structs.swift in Sources */,
+				830DA5891CF57DEE00203B41 /* SWAPI.swift in Sources */,
 				874D06591CEF295E009A494D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,6 +492,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				835E5DB91D0440A300FD7CC3 /* MyAPITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,10 +652,12 @@
 			baseConfigurationReference = F8B9811B1068B05E73195990 /* Pods-APIClientTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = APIClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.APIClientTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/APIClient.app/APIClient";
 			};
 			name = Debug;
@@ -649,6 +667,7 @@
 			baseConfigurationReference = 65C820A0F52E3181871F5ECA /* Pods-APIClientTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = APIClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.APIClientTests";
