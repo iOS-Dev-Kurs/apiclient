@@ -8,7 +8,7 @@ import Freddy
 import Moya
 import AlamofireImage
 
-class SWViewController: UIViewController {
+class SWViewController: UIViewController, UITextFieldDelegate {
     
     /// The SWAPI provider that handles requests for server resources
     var swAPI: MoyaProvider<SWAPI>!
