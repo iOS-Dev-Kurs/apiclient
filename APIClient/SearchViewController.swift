@@ -21,19 +21,18 @@ class SearchViewController: UIViewController {
         didSet {
             
             self.searchTextfield.text = peoples?.name
-
         }
     }
     
     @IBOutlet weak var searchTextfield: UITextField!
     @IBAction func buttonLoad(sender: AnyObject) {
-        loadPeoples(NamedResource(name: searchTextfield.text ?? ""))
+        loadPeoples(Int(searchTextfield.text!) ?? 0)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showInformation" {
             
-            guard let InformationViewController = (segue.destinationViewController as? UINavigationController)?.topViewController as? InformationViewController else {
+            guard let informationViewController = (segue.destinationViewController as? UINavigationController)?.topViewController as? InformationViewController else {
                 return
             }
             guard let peoplesInfo = self.peoples else {
@@ -41,7 +40,7 @@ class SearchViewController: UIViewController {
             }
             
 //        TODO: Übergabe
-
+            informationViewController.peoples = peoplesInfo
             
         }
         

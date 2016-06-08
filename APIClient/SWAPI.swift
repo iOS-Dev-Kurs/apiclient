@@ -19,7 +19,7 @@ enum SWAPI: Moya.TargetType, Cacheable {
     
     var path: String {
         switch self {
-        case .people(id: let id): return "/people/\(id)"
+        case .people(let id): return "/people/:\(id)/"
         }
     }
     

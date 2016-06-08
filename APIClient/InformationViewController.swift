@@ -16,5 +16,22 @@ import AlamofireImage
 
 class InformationViewController: UITableViewController {
     
+    var peoples : SWPeoples?
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("personInformation", forIndexPath: indexPath) as! UITableViewCell
+        
+        
+        return cell
+        }
+
 
 }
