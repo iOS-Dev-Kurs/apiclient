@@ -81,7 +81,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Heidelberg" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5z-LM-CcK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5z-LM-CcK">
                                 <rect key="frame" x="20" y="8" width="280" height="49"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -122,7 +122,7 @@
                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <toolbarItems>
-                        <barButtonItem title="Wettervorhersage" id="3lf-tO-fVk">
+                        <barButtonItem title="Wettervorhersage" id="3lf-tO-fVk" userLabel="forecastButton">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="Yfh-0w-l92" kind="presentation" identifier="ForecastView" id="S1i-1i-moj"/>
@@ -155,6 +155,7 @@
                         <outlet property="city" destination="x5z-LM-CcK" id="pu3-np-s4n"/>
                         <outlet property="cityname" destination="g0V-1V-dlz" id="e2I-Pd-gOK"/>
                         <outlet property="currentWeatherData" destination="ID2-D1-D1T" id="qbp-Ne-9Ck"/>
+                        <outlet property="forecastButton" destination="3lf-tO-fVk" id="JBL-Q6-G18"/>
                         <outlet property="status" destination="W4T-h2-ft2" id="vkr-t5-8s4"/>
                         <outlet property="sunrise" destination="eFd-dH-dmf" id="X0E-cp-WR4"/>
                         <outlet property="sunset" destination="pnJ-vj-Z01" id="dly-pb-Kuz"/>

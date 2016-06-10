@@ -18,7 +18,6 @@ class WeatherViewController: UIViewController,UITextFieldDelegate {
     var googleAPI: MoyaProvider<GoogleGeocodingAPI>!
 
     var allWeatherData = [WeatherList]()
-    var someInts = [Int]()
     
     var weatherObj: WeatherRawData? {
         didSet {
@@ -48,26 +47,29 @@ class WeatherViewController: UIViewController,UITextFieldDelegate {
     }
     
     @IBOutlet weak var weatherIcon: UIImageView!
-    @IBOutlet weak var weatherIconIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var currentWeatherData: UILabel!
-    @IBOutlet weak var currentWetter: UILabel!
-    @IBOutlet weak var cityname: UITextField!
-    @IBOutlet weak var temperature: UILabel!
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var status: UILabel!
     
+    @IBOutlet weak var weatherIconIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+
+    @IBOutlet weak var cityname: UITextField!
+    
+    @IBOutlet weak var forecastButton: UIBarButtonItem!
+
     @IBOutlet weak var city: UILabel!
     @IBOutlet weak var timezone: UILabel!
     @IBOutlet weak var sunrise: UILabel!
     @IBOutlet weak var sunset: UILabel!
+    @IBOutlet weak var currentWeatherData: UILabel!
+    @IBOutlet weak var currentWetter: UILabel!
+    @IBOutlet weak var temperature: UILabel!
+    @IBOutlet weak var status: UILabel!
+
     
-    @IBAction func  unwindToWeather(segue: UIStoryboardSegue){
-        switch segue.identifier! {
-        case "ExitFromButton":
-            print("buttonExitToCanvas fired")
-        default:
-            break
-        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        cityname.delegate = self
+        
+        self.loadCityRawData(CityResource(name: "Heidelberg"))
 
     }
     
@@ -77,6 +79,14 @@ class WeatherViewController: UIViewController,UITextFieldDelegate {
             guard let weatherListViewController = (segue.destinationViewController as? UINavigationController)?.topViewController as? WeatherListViewController else {break}
 
             weatherListViewController.weather = allWeatherData
+            
+            if let dotRange = city.text!.rangeOfString(",") {
+                city.text!.removeRange(dotRange.startIndex..<city.text!.endIndex)
+            }
+            
+            let cleanCityname = (city.text!.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet()) as NSArray).componentsJoinedByString("")
+
+            weatherListViewController.cityname = cleanCityname
             print(weatherListViewController.weather)
             
         default:
@@ -84,9 +94,14 @@ class WeatherViewController: UIViewController,UITextFieldDelegate {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        cityname.delegate = self
+    @IBAction func  unwindToWeather(segue: UIStoryboardSegue){
+        switch segue.identifier! {
+        case "ExitFromButton":
+            print("buttonExitToCanvas fired")
+        default:
+            break
+        }
+        
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -219,23 +234,29 @@ class WeatherViewController: UIViewController,UITextFieldDelegate {
     
     func loadForecast(obj: WeatherRawData){
         
+        let days: Int
+        days = obj.dailyWeather.data.count-1
+        
         if !allWeatherData.isEmpty
         {
             allWeatherData = []
         }
-        let days: Int
-        days = 7
         
-        for index in 1...days {
+        if days > 0{
         
-            let obj = WeatherList(day: obj.dailyWeather.data[index].date,
-                                  maxTemp: String(format: "%.1f", obj.dailyWeather.data[index].maxTemp),
-                                  minTemp:  String(format: "%.1f", obj.dailyWeather.data[index].minTemp),
-                                  sunrise: obj.dailyWeather.data[index].sunrise,
-                                  sunset: obj.dailyWeather.data[index].sunset,
-                                  image: obj.dailyWeather.data[index].icon)
-        allWeatherData.append(obj!)
-            
+            for index in 1...days {
+        
+                let obj = WeatherList(day: obj.dailyWeather.data[index].date,
+                                      maxTemp: String(format: "%.1f", obj.dailyWeather.data[index].maxTemp),
+                                      minTemp:  String(format: "%.1f", obj.dailyWeather.data[index].minTemp),
+                                      sunrise: obj.dailyWeather.data[index].sunrise,
+                                      sunset: obj.dailyWeather.data[index].sunset,
+                                      image: obj.dailyWeather.data[index].icon)
+                allWeatherData.append(obj!)
+            }
+        }
+        else {
+            self.forecastButton.enabled = false
         }
     }
 }

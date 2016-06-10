@@ -12,8 +12,15 @@ import UIKit
 class WeatherListViewController: UITableViewController{
     
     var weather: [WeatherList]?
+    var cityname: String = ""
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.title = cityname + " Forecast"
 
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
