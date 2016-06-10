@@ -6,4 +6,4 @@ pod 'Freddy'
 pod 'AlamofireImage'
 pod 'AwesomeCache'
 
-target 'APIClient'
+target 'WeatherClient'
