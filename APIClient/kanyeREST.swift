@@ -44,6 +44,8 @@ enum kanyeREST: Moya.TargetType{
 	// TODO: Provide sample data for testing
 	var sampleData: NSData {
 		switch self {
+		case .album(title: let name): return
+		case .track(title: let name): return
 		default: return "".dataUsingEncoding(NSUTF8StringEncoding)!
 		}
 	}

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		078B558C6C77F3C6DCDC4678 /* Pods_APIClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82531BA6D6228998A00AB5B6 /* Pods_APIClientUITests.framework */; };
+		77260C891D05B8AD000D0916 /* KanyeRESTtests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77260C881D05B8AD000D0916 /* KanyeRESTtests.swift */; };
 		7741D07F1CFC30AB0059684C /* albumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741D07E1CFC30AA0059684C /* albumViewController.swift */; };
 		7741D0811CFC31BA0059684C /* kanyeREST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741D0801CFC31BA0059684C /* kanyeREST.swift */; };
 		7741D0831CFC320C0059684C /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741D0821CFC320C0059684C /* Album.swift */; };
@@ -47,7 +48,8 @@
 		198B23CD94C6D84016A5208A /* Pods-APIClientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientUITests/Pods-APIClientUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4FFA0A7AA37697BD5CBC3211 /* Pods_APIClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C820A0F52E3181871F5ECA /* Pods-APIClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientTests/Pods-APIClientTests.release.xcconfig"; sourceTree = "<group>"; };
-		82531BA6D6228998A00AB5B6 /* Pods_APIClientUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIClientUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		77260C871D05B8AD000D0916 /* APIClientTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "APIClientTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		77260C881D05B8AD000D0916 /* KanyeRESTtests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanyeRESTtests.swift; sourceTree = "<group>"; };
 		7741D07E1CFC30AA0059684C /* albumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = albumViewController.swift; sourceTree = "<group>"; };
 		7741D0801CFC31BA0059684C /* kanyeREST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kanyeREST.swift; sourceTree = "<group>"; };
 		7741D0821CFC320C0059684C /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 		7741D08A1CFC36000059684C /* albumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = albumCell.swift; sourceTree = "<group>"; };
 		7741D08C1CFC360E0059684C /* trackCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = trackCell.swift; sourceTree = "<group>"; };
 		7741D08E1CFC51940059684C /* APIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIViewController.swift; sourceTree = "<group>"; };
+		82531BA6D6228998A00AB5B6 /* Pods_APIClientUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIClientUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		872A275B1CF0D87100A988C4 /* APIResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResource.swift; sourceTree = "<group>"; };
 		874D06551CEF295E009A494D /* kanyeAPIClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kanyeAPIClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		874D06581CEF295E009A494D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -159,7 +162,6 @@
 		874D06561CEF295E009A494D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				874D06551CEF295E009A494D /* APIClient.app */,
 				87EC714F1CFA380F00FBDDDE /* APIClientTests.xctest */,
 				87EC715D1CFA381600FBDDDE /* APIClientUITests.xctest */,
 				874D06551CEF295E009A494D /* kanyeAPIClient.app */,
@@ -184,6 +186,8 @@
 			isa = PBXGroup;
 			children = (
 				87EC71531CFA380F00FBDDDE /* Info.plist */,
+				77260C881D05B8AD000D0916 /* KanyeRESTtests.swift */,
+				77260C871D05B8AD000D0916 /* APIClientTests-Bridging-Header.h */,
 			);
 			path = APIClientTests;
 			sourceTree = "<group>";
@@ -321,10 +325,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				874D06541CEF295E009A494D /* APIClient */,
+				874D06541CEF295E009A494D /* kanyeAPIClient */,
 				87EC714E1CFA380F00FBDDDE /* APIClientTests */,
 				87EC715C1CFA381600FBDDDE /* APIClientUITests */,
-				874D06541CEF295E009A494D /* kanyeAPIClient */,
 			);
 		};
 /* End PBXProject section */
@@ -516,6 +519,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77260C891D05B8AD000D0916 /* KanyeRESTtests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,12 +535,12 @@
 /* Begin PBXTargetDependency section */
 		87EC71551CFA380F00FBDDDE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 874D06541CEF295E009A494D /* APIClient */;
+			target = 874D06541CEF295E009A494D /* kanyeAPIClient */;
 			targetProxy = 87EC71541CFA380F00FBDDDE /* PBXContainerItemProxy */;
 		};
 		87EC71631CFA381600FBDDDE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 874D06541CEF295E009A494D /* APIClient */;
+			target = 874D06541CEF295E009A494D /* kanyeAPIClient */;
 			targetProxy = 87EC71621CFA381600FBDDDE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -681,10 +685,13 @@
 			baseConfigurationReference = F8B9811B1068B05E73195990 /* Pods-APIClientTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = APIClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.APIClientTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "APIClientTests/APIClientTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/APIClient.app/APIClient";
 			};
 			name = Debug;
@@ -694,10 +701,12 @@
 			baseConfigurationReference = 65C820A0F52E3181871F5ECA /* Pods-APIClientTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = APIClientTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.APIClientTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "APIClientTests/APIClientTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/APIClient.app/APIClient";
 			};
 			name = Release;
