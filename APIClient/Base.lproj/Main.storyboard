@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="E10-YL-lxp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="E10-YL-lxp">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -14,31 +18,179 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="rPr-Fp-ALE" kind="relationship" relationship="rootViewController" id="g8j-CJ-uaE"/>
+                        <segue destination="DR2-xt-xbP" kind="relationship" relationship="rootViewController" id="Peu-Dz-cGv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfS-9i-aMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-658" y="301"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="adh-8k-Iuh">
+        <!--APIView-->
+        <scene sceneID="RGi-sc-Gj7">
             <objects>
-                <viewController id="rPr-Fp-ALE" sceneMemberID="viewController">
+                <viewController id="K22-lG-r0T" userLabel="APIView" customClass="APIViewController" customModule="kanyeAPIClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pj8-zF-1z6"/>
-                        <viewControllerLayoutGuide type="bottom" id="kt2-9S-3TK"/>
+                        <viewControllerLayoutGuide type="top" id="uwa-jm-oeS"/>
+                        <viewControllerLayoutGuide type="bottom" id="XPC-nd-ctP"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rEB-Za-Zhx">
+                    <view key="view" contentMode="scaleToFill" id="ztw-f3-nkn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cAd-1M-KLe">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySA-MQ-pZ6">
+                                        <rect key="frame" x="102" y="64" width="397" height="407"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ySA-MQ-pZ6" secondAttribute="height" multiplier="2:1" id="RpE-R8-06Z"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="RpE-R8-06Z"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="ySA-MQ-pZ6" firstAttribute="top" secondItem="cAd-1M-KLe" secondAttribute="top" id="AKv-v3-zMU"/>
+                                    <constraint firstItem="ySA-MQ-pZ6" firstAttribute="leading" secondItem="cAd-1M-KLe" secondAttribute="leadingMargin" id="Uv8-uQ-IpX"/>
+                                    <constraint firstItem="ySA-MQ-pZ6" firstAttribute="trailing" secondItem="cAd-1M-KLe" secondAttribute="trailingMargin" id="eAY-Yd-aAe"/>
+                                    <constraint firstItem="ySA-MQ-pZ6" firstAttribute="bottom" secondItem="cAd-1M-KLe" secondAttribute="bottom" id="y1t-Zn-hG3"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cAd-1M-KLe" firstAttribute="bottom" secondItem="ztw-f3-nkn" secondAttribute="bottom" id="7Sn-kd-A9Y"/>
+                            <constraint firstItem="cAd-1M-KLe" firstAttribute="trailing" secondItem="ztw-f3-nkn" secondAttribute="trailing" id="RGV-lZ-PQ5"/>
+                            <constraint firstItem="cAd-1M-KLe" firstAttribute="top" secondItem="ztw-f3-nkn" secondAttribute="firstBaseline" id="sR1-Eg-CFK"/>
+                            <constraint firstItem="cAd-1M-KLe" firstAttribute="leading" secondItem="ztw-f3-nkn" secondAttribute="leading" id="z1v-Zs-dOL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="FLz-OA-2HG"/>
+                    <connections>
+                        <outlet property="lyricsLabel" destination="ySA-MQ-pZ6" id="Fnc-3w-r8j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l1e-SN-HIQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="110" y="299"/>
+        </scene>
+        <!--album View Controller-->
+        <scene sceneID="esf-vQ-Cgq">
+            <objects>
+                <tableViewController id="DR2-xt-xbP" userLabel="album View Controller" customClass="albumViewController" customModule="kanyeAPIClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Y0e-Td-7QO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="CZR-l9-xMg"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OaC-W5-AeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="albumCell" id="XwV-Px-sya" customClass="albumCell" customModule="kanyeAPIClient" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XwV-Px-sya" id="rNR-ak-bfI">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="LaT-8V-1np" kind="show" identifier="showTracks" id="JsA-Iw-Dlj"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="DR2-xt-xbP" id="1R1-kg-FHi"/>
+                            <outlet property="delegate" destination="DR2-xt-xbP" id="c3o-N7-OUb"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Jxa-vf-jh3"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4m3-w5-SV5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65" y="301"/>
+            <point key="canvasLocation" x="110" y="1089"/>
+        </scene>
+        <!--track View Controller-->
+        <scene sceneID="Wju-gh-3ms">
+            <objects>
+                <tableViewController id="LaT-8V-1np" userLabel="track View Controller" customClass="trackViewController" customModule="kanyeAPIClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="gsw-L6-3uM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="trackCell" textLabel="djr-oV-XxG" style="IBUITableViewCellStyleDefault" id="o8w-53-FCd" customClass="trackCell" customModule="kanyeAPIClient" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o8w-53-FCd" id="QA7-Ep-SwC">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="djr-oV-XxG">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="43"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="dcS-fu-nFk" kind="show" identifier="showDetail" id="dzw-d8-wph"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LaT-8V-1np" id="qcw-Rn-w1b"/>
+                            <outlet property="delegate" destination="LaT-8V-1np" id="8oL-H4-xuU"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Tracks" id="z3S-qx-2v8"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cfd-bq-lZv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="868" y="1089"/>
+        </scene>
+        <!--track Detail-->
+        <scene sceneID="jUK-k3-fgA">
+            <objects>
+                <viewController id="dcS-fu-nFk" userLabel="track Detail" customClass="trackDetailViewController" customModule="kanyeAPIClient" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2gX-83-Zzo"/>
+                        <viewControllerLayoutGuide type="bottom" id="MCD-Or-Vvs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="oSV-nQ-QER">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="epB-jB-g6D">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="showLyrics"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="epB-jB-g6D" firstAttribute="top" secondItem="oSV-nQ-QER" secondAttribute="top" constant="64" id="2qp-j0-fz8"/>
+                            <constraint firstItem="epB-jB-g6D" firstAttribute="rightMargin" secondItem="oSV-nQ-QER" secondAttribute="rightMargin" id="8tE-pD-lgw"/>
+                            <constraint firstItem="epB-jB-g6D" firstAttribute="leftMargin" secondItem="oSV-nQ-QER" secondAttribute="leftMargin" id="K0t-wu-hdC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Details" id="Mem-im-QOe"/>
+                    <connections>
+                        <outlet property="lyricsLabel" destination="epB-jB-g6D" id="uhy-ZX-45I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PnC-Ql-DbW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1652" y="1089"/>
         </scene>
     </scenes>
 </document>
