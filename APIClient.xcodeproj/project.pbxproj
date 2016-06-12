@@ -66,7 +66,7 @@
 		7741D08E1CFC51940059684C /* APIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIViewController.swift; sourceTree = "<group>"; };
 		82531BA6D6228998A00AB5B6 /* Pods_APIClientUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIClientUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		872A275B1CF0D87100A988C4 /* APIResource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIResource.swift; sourceTree = "<group>"; };
-		874D06551CEF295E009A494D /* kanyeAPIClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kanyeAPIClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		874D06551CEF295E009A494D /* APIClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APIClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		874D06581CEF295E009A494D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		874D065D1CEF295E009A494D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		874D065F1CEF295E009A494D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -76,13 +76,13 @@
 		87EC71531CFA380F00FBDDDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87EC715D1CFA381600FBDDDE /* APIClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APIClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87EC71611CFA381600FBDDDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		93EFAB13AE62F1B6FB2683B2 /* Pods-APIClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APIClient/Pods-APIClient.debug.xcconfig"; sourceTree = "<group>"; };
+		93EFAB13AE62F1B6FB2683B2 /* Pods-APIClient.debug.xcconfig */ = {isa = PBXFileReference; explicitFileType = text.xcconfig; includeInIndex = 1; name = "Pods-APIClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APIClient/Pods-APIClient.debug.xcconfig"; sourceTree = "<group>"; };
 		9A49B0E72F691C9CD26D8680 /* Pods-kanyeAPIClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanyeAPIClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-kanyeAPIClient/Pods-kanyeAPIClient.release.xcconfig"; sourceTree = "<group>"; };
 		B79C3500DD6D5533959DB16E /* Pods-kanyeAPIClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanyeAPIClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kanyeAPIClient/Pods-kanyeAPIClient.debug.xcconfig"; sourceTree = "<group>"; };
 		BD8A5B3E1266D5298CABE44A /* Pods_APIClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67B3B3E7990BE278400974F /* Pods-APIClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientUITests/Pods-APIClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F8B9811B1068B05E73195990 /* Pods-APIClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientTests/Pods-APIClientTests.debug.xcconfig"; sourceTree = "<group>"; };
-		FFE13D543A95D28F27CFBDA4 /* Pods-APIClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-APIClient/Pods-APIClient.release.xcconfig"; sourceTree = "<group>"; };
+		FFE13D543A95D28F27CFBDA4 /* Pods-APIClient.release.xcconfig */ = {isa = PBXFileReference; explicitFileType = text.xcconfig; includeInIndex = 1; name = "Pods-APIClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-APIClient/Pods-APIClient.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,7 +172,7 @@
 			children = (
 				87EC714F1CFA380F00FBDDDE /* APIClientTests.xctest */,
 				87EC715D1CFA381600FBDDDE /* APIClientUITests.xctest */,
-				874D06551CEF295E009A494D /* kanyeAPIClient.app */,
+				874D06551CEF295E009A494D /* APIClient.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -239,9 +239,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		874D06541CEF295E009A494D /* kanyeAPIClient */ = {
+		874D06541CEF295E009A494D /* APIClient */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 874D06671CEF295E009A494D /* Build configuration list for PBXNativeTarget "kanyeAPIClient" */;
+			buildConfigurationList = 874D06671CEF295E009A494D /* Build configuration list for PBXNativeTarget "APIClient" */;
 			buildPhases = (
 				766803B31A3F89C2C74D599B /* [CP] Check Pods Manifest.lock */,
 				874D06511CEF295E009A494D /* Sources */,
@@ -254,9 +254,9 @@
 			);
 			dependencies = (
 			);
-			name = kanyeAPIClient;
+			name = APIClient;
 			productName = APIClient;
-			productReference = 874D06551CEF295E009A494D /* kanyeAPIClient.app */;
+			productReference = 874D06551CEF295E009A494D /* APIClient.app */;
 			productType = "com.apple.product-type.application";
 		};
 		87EC714E1CFA380F00FBDDDE /* APIClientTests */ = {
@@ -325,7 +325,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 874D06501CEF295E009A494D /* Build configuration list for PBXProject "kanyeAPIClient" */;
+			buildConfigurationList = 874D06501CEF295E009A494D /* Build configuration list for PBXProject "APIClient" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -338,7 +338,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				874D06541CEF295E009A494D /* kanyeAPIClient */,
+				874D06541CEF295E009A494D /* APIClient */,
 				87EC714E1CFA380F00FBDDDE /* APIClientTests */,
 				87EC715C1CFA381600FBDDDE /* APIClientUITests */,
 			);
@@ -400,7 +400,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kanyeAPIClient/Pods-kanyeAPIClient-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-APIClient/Pods-APIClient-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		46810DD19FC8355AB5B97BE0 /* [CP] Check Pods Manifest.lock */ = {
@@ -430,7 +430,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kanyeAPIClient/Pods-kanyeAPIClient-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-APIClient/Pods-APIClient-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		766803B31A3F89C2C74D599B /* [CP] Check Pods Manifest.lock */ = {
@@ -549,12 +549,12 @@
 /* Begin PBXTargetDependency section */
 		87EC71551CFA380F00FBDDDE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 874D06541CEF295E009A494D /* kanyeAPIClient */;
+			target = 874D06541CEF295E009A494D /* APIClient */;
 			targetProxy = 87EC71541CFA380F00FBDDDE /* PBXContainerItemProxy */;
 		};
 		87EC71631CFA381600FBDDDE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 874D06541CEF295E009A494D /* kanyeAPIClient */;
+			target = 874D06541CEF295E009A494D /* APIClient */;
 			targetProxy = 87EC71621CFA381600FBDDDE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -666,7 +666,7 @@
 		};
 		874D06681CEF295E009A494D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B79C3500DD6D5533959DB16E /* Pods-kanyeAPIClient.debug.xcconfig */;
+			baseConfigurationReference = 93EFAB13AE62F1B6FB2683B2 /* Pods-APIClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -674,14 +674,14 @@
 				INFOPLIST_FILE = APIClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.APIClient";
-				PRODUCT_NAME = kanyeAPIClient;
+				PRODUCT_NAME = APIClient;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		874D06691CEF295E009A494D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9A49B0E72F691C9CD26D8680 /* Pods-kanyeAPIClient.release.xcconfig */;
+			baseConfigurationReference = FFE13D543A95D28F27CFBDA4 /* Pods-APIClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -689,7 +689,7 @@
 				INFOPLIST_FILE = APIClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.APIClient";
-				PRODUCT_NAME = kanyeAPIClient;
+				PRODUCT_NAME = APIClient;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -757,7 +757,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		874D06501CEF295E009A494D /* Build configuration list for PBXProject "kanyeAPIClient" */ = {
+		874D06501CEF295E009A494D /* Build configuration list for PBXProject "APIClient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				874D06651CEF295E009A494D /* Debug */,
@@ -766,7 +766,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		874D06671CEF295E009A494D /* Build configuration list for PBXNativeTarget "kanyeAPIClient" */ = {
+		874D06671CEF295E009A494D /* Build configuration list for PBXNativeTarget "APIClient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				874D06681CEF295E009A494D /* Debug */,

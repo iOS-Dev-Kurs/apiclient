@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/arthurheimbrecht/Documents/Uni/iOS/kanyerestclient/APIClient.xcodeproj">
+      location = "group:APIClient.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
