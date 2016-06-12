@@ -44,8 +44,8 @@ enum kanyeREST: Moya.TargetType{
 	// TODO: Provide sample data for testing
 	var sampleData: NSData {
 		switch self {
-		case .album(title: let name): return
-		case .track(title: let name): return
+		case .album(title: let name): return "{\"result\": [{\"album\": \"\(name)\",\"title\": \"generic title no.1 \",\"lyrics\": \"bla bla\",},{\"album\": \"\(name)\",\"title\": \"generic title no. 2\",\"lyrics\": \"more bla bla\",},]}".dataUsingEncoding(NSUTF8StringEncoding)!
+		case .track(title: let name): return "{\"album\": \"graduation\", \"title\": \"\(name)\", \"lyrics\": \"lyrics\nyeah yeah yeah \n lyrics lyrics \n damn lyrics, i'm da best ya\", }".dataUsingEncoding(NSUTF8StringEncoding)!
 		default: return "".dataUsingEncoding(NSUTF8StringEncoding)!
 		}
 	}

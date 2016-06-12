@@ -56,7 +56,7 @@ class APIViewController: UIViewController {
 						print(response)
 						let json = try JSON(data: response.data)
 						let tracks = try json.array("result").map(Track.init)
-						self.allalbums.append(Album(tracksfetched: tracks))
+						self.allalbums.append(try Album(tracksfetched: tracks))
 						print(self.allalbums[0])
 					} catch {
 						print(error)

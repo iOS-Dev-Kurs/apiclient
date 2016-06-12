@@ -1,12 +1,14 @@
 platform :ios, '9.0'
 use_frameworks!
 
+project './kanyeAPIClient.xcodeproj'
+
 pod 'Moya'
 pod 'Freddy'
 pod 'AlamofireImage'
 pod 'AwesomeCache'
 
-target 'APIClient'
+target 'kanyeAPIClient'
 
 target 'APIClientTests' do
     pod 'Nimble'

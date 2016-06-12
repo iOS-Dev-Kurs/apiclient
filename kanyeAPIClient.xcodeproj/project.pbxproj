@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		078B558C6C77F3C6DCDC4678 /* Pods_APIClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82531BA6D6228998A00AB5B6 /* Pods_APIClientUITests.framework */; };
 		77260C891D05B8AD000D0916 /* KanyeRESTtests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77260C881D05B8AD000D0916 /* KanyeRESTtests.swift */; };
+		773CA9B61D0C7082002B6ADF /* KanyeRESTUItests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 773CA9B51D0C7082002B6ADF /* KanyeRESTUItests.swift */; };
 		7741D07F1CFC30AB0059684C /* albumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741D07E1CFC30AA0059684C /* albumViewController.swift */; };
 		7741D0811CFC31BA0059684C /* kanyeREST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741D0801CFC31BA0059684C /* kanyeREST.swift */; };
 		7741D0831CFC320C0059684C /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741D0821CFC320C0059684C /* Album.swift */; };
@@ -18,6 +19,7 @@
 		7741D08B1CFC36000059684C /* albumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741D08A1CFC36000059684C /* albumCell.swift */; };
 		7741D08D1CFC360E0059684C /* trackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741D08C1CFC360E0059684C /* trackCell.swift */; };
 		7741D08F1CFC51940059684C /* APIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741D08E1CFC51940059684C /* APIViewController.swift */; };
+		779112D37BF8C3375F116A2A /* Pods_kanyeAPIClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6EF7936430B01CD740FE871A /* Pods_kanyeAPIClient.framework */; };
 		872A275C1CF0D87100A988C4 /* APIResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872A275B1CF0D87100A988C4 /* APIResource.swift */; };
 		874D06591CEF295E009A494D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874D06581CEF295E009A494D /* AppDelegate.swift */; };
 		874D065E1CEF295E009A494D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 874D065C1CEF295E009A494D /* Main.storyboard */; };
@@ -48,8 +50,11 @@
 		198B23CD94C6D84016A5208A /* Pods-APIClientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientUITests/Pods-APIClientUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4FFA0A7AA37697BD5CBC3211 /* Pods_APIClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C820A0F52E3181871F5ECA /* Pods-APIClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientTests/Pods-APIClientTests.release.xcconfig"; sourceTree = "<group>"; };
+		6EF7936430B01CD740FE871A /* Pods_kanyeAPIClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kanyeAPIClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77260C871D05B8AD000D0916 /* APIClientTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "APIClientTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		77260C881D05B8AD000D0916 /* KanyeRESTtests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanyeRESTtests.swift; sourceTree = "<group>"; };
+		773CA9B41D0C7081002B6ADF /* APIClientUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "APIClientUITests-Bridging-Header.h"; sourceTree = "<group>"; };
+		773CA9B51D0C7082002B6ADF /* KanyeRESTUItests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KanyeRESTUItests.swift; sourceTree = "<group>"; };
 		7741D07E1CFC30AA0059684C /* albumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = albumViewController.swift; sourceTree = "<group>"; };
 		7741D0801CFC31BA0059684C /* kanyeREST.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kanyeREST.swift; sourceTree = "<group>"; };
 		7741D0821CFC320C0059684C /* Album.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
@@ -72,6 +77,8 @@
 		87EC715D1CFA381600FBDDDE /* APIClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APIClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87EC71611CFA381600FBDDDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93EFAB13AE62F1B6FB2683B2 /* Pods-APIClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APIClient/Pods-APIClient.debug.xcconfig"; sourceTree = "<group>"; };
+		9A49B0E72F691C9CD26D8680 /* Pods-kanyeAPIClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanyeAPIClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-kanyeAPIClient/Pods-kanyeAPIClient.release.xcconfig"; sourceTree = "<group>"; };
+		B79C3500DD6D5533959DB16E /* Pods-kanyeAPIClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kanyeAPIClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kanyeAPIClient/Pods-kanyeAPIClient.debug.xcconfig"; sourceTree = "<group>"; };
 		BD8A5B3E1266D5298CABE44A /* Pods_APIClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C67B3B3E7990BE278400974F /* Pods-APIClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientUITests/Pods-APIClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F8B9811B1068B05E73195990 /* Pods-APIClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientTests/Pods-APIClientTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A526FDEE5BF2D1BC3C97B9FA /* Pods_APIClient.framework in Frameworks */,
+				779112D37BF8C3375F116A2A /* Pods_kanyeAPIClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				87EC71611CFA381600FBDDDE /* Info.plist */,
+				773CA9B51D0C7082002B6ADF /* KanyeRESTUItests.swift */,
+				773CA9B41D0C7081002B6ADF /* APIClientUITests-Bridging-Header.h */,
 			);
 			path = APIClientUITests;
 			sourceTree = "<group>";
@@ -209,6 +219,8 @@
 				65C820A0F52E3181871F5ECA /* Pods-APIClientTests.release.xcconfig */,
 				C67B3B3E7990BE278400974F /* Pods-APIClientUITests.debug.xcconfig */,
 				198B23CD94C6D84016A5208A /* Pods-APIClientUITests.release.xcconfig */,
+				B79C3500DD6D5533959DB16E /* Pods-kanyeAPIClient.debug.xcconfig */,
+				9A49B0E72F691C9CD26D8680 /* Pods-kanyeAPIClient.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -219,6 +231,7 @@
 				BD8A5B3E1266D5298CABE44A /* Pods_APIClient.framework */,
 				4FFA0A7AA37697BD5CBC3211 /* Pods_APIClientTests.framework */,
 				82531BA6D6228998A00AB5B6 /* Pods_APIClientUITests.framework */,
+				6EF7936430B01CD740FE871A /* Pods_kanyeAPIClient.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -230,12 +243,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 874D06671CEF295E009A494D /* Build configuration list for PBXNativeTarget "kanyeAPIClient" */;
 			buildPhases = (
-				766803B31A3F89C2C74D599B /* 📦 Check Pods Manifest.lock */,
+				766803B31A3F89C2C74D599B /* [CP] Check Pods Manifest.lock */,
 				874D06511CEF295E009A494D /* Sources */,
 				874D06521CEF295E009A494D /* Frameworks */,
 				874D06531CEF295E009A494D /* Resources */,
-				63A898AB1E385BFD9CE49E01 /* 📦 Embed Pods Frameworks */,
-				353BFD219018DADC12E19A38 /* 📦 Copy Pods Resources */,
+				63A898AB1E385BFD9CE49E01 /* [CP] Embed Pods Frameworks */,
+				353BFD219018DADC12E19A38 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -250,12 +263,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 87EC71581CFA380F00FBDDDE /* Build configuration list for PBXNativeTarget "APIClientTests" */;
 			buildPhases = (
-				46810DD19FC8355AB5B97BE0 /* 📦 Check Pods Manifest.lock */,
+				46810DD19FC8355AB5B97BE0 /* [CP] Check Pods Manifest.lock */,
 				87EC714B1CFA380F00FBDDDE /* Sources */,
 				87EC714C1CFA380F00FBDDDE /* Frameworks */,
 				87EC714D1CFA380F00FBDDDE /* Resources */,
-				7E951D32C261E9289B04B286 /* 📦 Embed Pods Frameworks */,
-				0032BF5753977F17165877AF /* 📦 Copy Pods Resources */,
+				7E951D32C261E9289B04B286 /* [CP] Embed Pods Frameworks */,
+				0032BF5753977F17165877AF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -271,12 +284,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 87EC71641CFA381600FBDDDE /* Build configuration list for PBXNativeTarget "APIClientUITests" */;
 			buildPhases = (
-				B1CFFA6AFE5B3BCE58836CEE /* 📦 Check Pods Manifest.lock */,
+				B1CFFA6AFE5B3BCE58836CEE /* [CP] Check Pods Manifest.lock */,
 				87EC71591CFA381600FBDDDE /* Sources */,
 				87EC715A1CFA381600FBDDDE /* Frameworks */,
 				87EC715B1CFA381600FBDDDE /* Resources */,
 				87EC716B1CFA3CA100FBDDDE /* 📦 Embed Pods Frameworks */,
-				A88CAB56517C46775BB21926 /* 📦 Copy Pods Resources */,
+				A88CAB56517C46775BB21926 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -360,14 +373,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0032BF5753977F17165877AF /* 📦 Copy Pods Resources */ = {
+		0032BF5753977F17165877AF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,59 +388,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-APIClientTests/Pods-APIClientTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		353BFD219018DADC12E19A38 /* 📦 Copy Pods Resources */ = {
+		353BFD219018DADC12E19A38 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-APIClient/Pods-APIClient-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kanyeAPIClient/Pods-kanyeAPIClient-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		46810DD19FC8355AB5B97BE0 /* 📦 Check Pods Manifest.lock */ = {
+		46810DD19FC8355AB5B97BE0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		63A898AB1E385BFD9CE49E01 /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-APIClient/Pods-APIClient-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		766803B31A3F89C2C74D599B /* 📦 Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,14 +418,44 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		7E951D32C261E9289B04B286 /* 📦 Embed Pods Frameworks */ = {
+		63A898AB1E385BFD9CE49E01 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-kanyeAPIClient/Pods-kanyeAPIClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		766803B31A3F89C2C74D599B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7E951D32C261E9289B04B286 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,14 +477,14 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-APIClientUITests/Pods-APIClientUITests-frameworks.sh\"";
 		};
-		A88CAB56517C46775BB21926 /* 📦 Copy Pods Resources */ = {
+		A88CAB56517C46775BB21926 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -479,14 +492,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-APIClientUITests/Pods-APIClientUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B1CFFA6AFE5B3BCE58836CEE /* 📦 Check Pods Manifest.lock */ = {
+		B1CFFA6AFE5B3BCE58836CEE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,6 +540,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				773CA9B61D0C7082002B6ADF /* KanyeRESTUItests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,7 +666,7 @@
 		};
 		874D06681CEF295E009A494D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 93EFAB13AE62F1B6FB2683B2 /* Pods-APIClient.debug.xcconfig */;
+			baseConfigurationReference = B79C3500DD6D5533959DB16E /* Pods-kanyeAPIClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -667,7 +681,7 @@
 		};
 		874D06691CEF295E009A494D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FFE13D543A95D28F27CFBDA4 /* Pods-APIClient.release.xcconfig */;
+			baseConfigurationReference = 9A49B0E72F691C9CD26D8680 /* Pods-kanyeAPIClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -715,10 +729,13 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C67B3B3E7990BE278400974F /* Pods-APIClientUITests.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = APIClientUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.APIClientUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "APIClientUITests/APIClientUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_TARGET_NAME = APIClient;
 			};
 			name = Debug;
@@ -727,10 +744,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 198B23CD94C6D84016A5208A /* Pods-APIClientUITests.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = APIClientUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.APIClientUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "APIClientUITests/APIClientUITests-Bridging-Header.h";
 				TEST_TARGET_NAME = APIClient;
 			};
 			name = Release;

@@ -36,7 +36,7 @@ class albumViewController: UITableViewController {
 						let json = try JSON(data: response.data)
 						let tracks = try json.array("result").map(Track.init)
 						print(tracks)
-						self.allalbums.append(Album(tracksfetched: tracks))
+						self.allalbums.append(try Album(tracksfetched: tracks))
 						//print(self.allalbums[0])
 						print(self.allalbums)
 					} catch {

@@ -15,15 +15,8 @@ struct Album {
 	let name: String
 	let tracks: [Track]
 	
-	init(tracksfetched: [Track]){
+	init(tracksfetched: [Track]) throws {
 		tracks = tracksfetched
 		name = tracksfetched[0].album
-	}
-}
-
-extension Album: JSONDecodable {
-	public init(json: JSON) throws {
-		name = try json.string("album")
-		tracks = try json.arrayOf("title") //write func
 	}
 }
