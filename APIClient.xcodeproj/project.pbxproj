@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		078B558C6C77F3C6DCDC4678 /* Pods_APIClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82531BA6D6228998A00AB5B6 /* Pods_APIClientUITests.framework */; };
+		17B83C331D0313F600164152 /* PostCodeApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B83C321D0313F600164152 /* PostCodeApi.swift */; };
+		17B83C371D046BF600164152 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B83C361D046BF600164152 /* MainViewController.swift */; };
 		872A275C1CF0D87100A988C4 /* APIResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872A275B1CF0D87100A988C4 /* APIResource.swift */; };
 		874D06591CEF295E009A494D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874D06581CEF295E009A494D /* AppDelegate.swift */; };
 		874D065E1CEF295E009A494D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 874D065C1CEF295E009A494D /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17B83C321D0313F600164152 /* PostCodeApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCodeApi.swift; sourceTree = "<group>"; };
+		17B83C361D046BF600164152 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		198B23CD94C6D84016A5208A /* Pods-APIClientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientUITests/Pods-APIClientUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4FFA0A7AA37697BD5CBC3211 /* Pods_APIClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C820A0F52E3181871F5ECA /* Pods-APIClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientTests/Pods-APIClientTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +92,7 @@
 		872A27571CF0D4E200A988C4 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				17B83C361D046BF600164152 /* MainViewController.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -142,6 +147,7 @@
 		874D06571CEF295E009A494D /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
+				17B83C321D0313F600164152 /* PostCodeApi.swift */,
 				874D06581CEF295E009A494D /* AppDelegate.swift */,
 				874D065C1CEF295E009A494D /* Main.storyboard */,
 				872A27571CF0D4E200A988C4 /* View Controller */,
@@ -469,7 +475,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				872A275C1CF0D87100A988C4 /* APIResource.swift in Sources */,
+				17B83C331D0313F600164152 /* PostCodeApi.swift in Sources */,
 				874D06591CEF295E009A494D /* AppDelegate.swift in Sources */,
+				17B83C371D046BF600164152 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
