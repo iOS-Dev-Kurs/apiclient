@@ -14,24 +14,29 @@ import Moya
 import AlamofireImage
 
 
-class InformationViewController: UITableViewController {
+class InformationViewController: UIViewController {
     
     var peoples : SWPeoples?
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+
+    @IBOutlet weak var name: UILabel!
+    
+    @IBOutlet weak var gender: UILabel!
+    
+    @IBOutlet weak var height: UILabel!
+    
+    @IBOutlet weak var mass: UILabel!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        name.text = peoples?.name
+        gender.text = peoples?.gender
+        height.text = peoples?.height
+        mass.text = peoples?.mass
+        
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
-    }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("personInformation", forIndexPath: indexPath) as! UITableViewCell
-        
-        
-        return cell
-        }
-
-
 }
+
+

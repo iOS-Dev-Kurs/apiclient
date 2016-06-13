@@ -58,6 +58,7 @@ class SearchViewController: UIViewController {
                     let people = try SWPeoples(json: json)
                     // Configure view according to model
                     self.peoples = people
+                    self.performSegueWithIdentifier("showInformation", sender: nil)
                 } catch {
                     print(error)
                 }
