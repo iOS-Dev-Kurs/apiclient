@@ -32,7 +32,7 @@ class SearchViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showInformation" {
             
-            guard let informationViewController = (segue.destinationViewController as? UINavigationController)?.topViewController as? InformationViewController else {
+            guard let informationViewController = (segue.destinationViewController as?InformationViewController) else {
                 return
             }
             guard let peoplesInfo = self.peoples else {
