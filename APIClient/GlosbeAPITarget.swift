@@ -15,8 +15,7 @@ struct GlosbeAPITarget : TargetType
     var from: String
     var dest: String
     
-    //NOTE(Frederik): Moya.TargetType protocol "implementation"
-    
+
     var baseURL: NSURL {
         return NSURL(string: "https://glosbe.com/gapi/translate?from=\(from)&dest=\(dest)&format=json&phrase=\(phrase)")!
     }
