@@ -20,7 +20,9 @@ class SearchViewController: UIViewController {
     var peoples: SWPeoples? {
         didSet {
             
-            self.searchTextfield.text = peoples?.name
+// Nur um Textfeld bei Zurückgehen auf Suchbegriff zu setzen
+            
+//            self.searchTextfield.text = peoples?.name
         }
     }
     
@@ -39,7 +41,7 @@ class SearchViewController: UIViewController {
                 return
             }
             
-//        TODO: Übergabe
+//        Übergabe
             informationViewController.peoples = peoplesInfo
             
         }

@@ -17,7 +17,6 @@ import AlamofireImage
 class InformationViewController: UIViewController {
     
     var peoples : SWPeoples?
-    
 
     @IBOutlet weak var name: UILabel!
     

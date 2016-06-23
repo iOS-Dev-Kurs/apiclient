@@ -44,6 +44,8 @@ enum SWAPI: Moya.TargetType, Cacheable {
     
 }
 
+//  Represents a resource provided by the SWAPI by its name
+
 struct NamedResource<Resource: Freddy.JSONDecodable>: Freddy.JSONDecodable {
     
     let name: String
