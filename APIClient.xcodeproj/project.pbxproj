@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		078B558C6C77F3C6DCDC4678 /* Pods_APIClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82531BA6D6228998A00AB5B6 /* Pods_APIClientUITests.framework */; };
+		1652B9AB1D05E48F00443CF1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652B9AA1D05E48F00443CF1 /* SearchViewController.swift */; };
+		1652B9AD1D05E67F00443CF1 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652B9AC1D05E67F00443CF1 /* InformationViewController.swift */; };
+		1652B9AF1D05E81F00443CF1 /* SWAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652B9AE1D05E81F00443CF1 /* SWAPI.swift */; };
+		1652B9B11D05EBDF00443CF1 /* Peoples.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1652B9B01D05EBDF00443CF1 /* Peoples.swift */; };
 		872A275C1CF0D87100A988C4 /* APIResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 872A275B1CF0D87100A988C4 /* APIResource.swift */; };
 		874D06591CEF295E009A494D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874D06581CEF295E009A494D /* AppDelegate.swift */; };
 		874D065E1CEF295E009A494D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 874D065C1CEF295E009A494D /* Main.storyboard */; };
@@ -35,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1652B9AA1D05E48F00443CF1 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		1652B9AC1D05E67F00443CF1 /* InformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
+		1652B9AE1D05E81F00443CF1 /* SWAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SWAPI.swift; sourceTree = "<group>"; };
+		1652B9B01D05EBDF00443CF1 /* Peoples.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Peoples.swift; sourceTree = "<group>"; };
 		198B23CD94C6D84016A5208A /* Pods-APIClientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientUITests/Pods-APIClientUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4FFA0A7AA37697BD5CBC3211 /* Pods_APIClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C820A0F52E3181871F5ECA /* Pods-APIClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientTests/Pods-APIClientTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +96,8 @@
 		872A27571CF0D4E200A988C4 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1652B9AA1D05E48F00443CF1 /* SearchViewController.swift */,
+				1652B9AC1D05E67F00443CF1 /* InformationViewController.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -103,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				872A275B1CF0D87100A988C4 /* APIResource.swift */,
+				1652B9B01D05EBDF00443CF1 /* Peoples.swift */,
+				1652B9AE1D05E81F00443CF1 /* SWAPI.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -468,8 +480,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1652B9AB1D05E48F00443CF1 /* SearchViewController.swift in Sources */,
 				872A275C1CF0D87100A988C4 /* APIResource.swift in Sources */,
 				874D06591CEF295E009A494D /* AppDelegate.swift in Sources */,
+				1652B9AF1D05E81F00443CF1 /* SWAPI.swift in Sources */,
+				1652B9B11D05EBDF00443CF1 /* Peoples.swift in Sources */,
+				1652B9AD1D05E67F00443CF1 /* InformationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

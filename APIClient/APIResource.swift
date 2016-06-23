@@ -12,19 +12,6 @@ import Freddy
 import AwesomeCache
 
 
-
-/**
- Representation for a resource that may or may not be loaded yet.
- 
- It is based on two generic types:
- 
- - The `Target` is a `Moya.TargetType` that abstracts the API. It must also be `Cacheable` so that responses can be cached.
- - The `Resource` is a `Freddy.JSONDecodable` type so that responses from the API can be directly parsed to JSON and decoded to the expected type.
- 
- You are free to use this utility or implement your own way to keep track of loaded and not loaded resources.
- 
- - seealso: MoyaProvider.request<Resource: Freddy.JSONDecodable>(_:completion:)
-*/
 enum APIResource<Target: Moya.TargetType, Resource: Freddy.JSONDecodable where Target: Cacheable> {
     
     case notLoaded(Target)
@@ -33,7 +20,6 @@ enum APIResource<Target: Moya.TargetType, Resource: Freddy.JSONDecodable where T
     case failed(Target, error: ErrorType)
     
 }
-
 
 // MARK: - Requesting Resources
 
