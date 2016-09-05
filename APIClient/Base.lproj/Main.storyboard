@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="E10-YL-lxp">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="16A312a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="E10-YL-lxp">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -19,26 +19,116 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfS-9i-aMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-658" y="301"/>
+            <point key="canvasLocation" x="-350.93333333333334" y="284.94666666666666"/>
         </scene>
-        <!--View Controller-->
+        <!--Country View Controller-->
         <scene sceneID="adh-8k-Iuh">
             <objects>
-                <viewController id="rPr-Fp-ALE" sceneMemberID="viewController">
+                <viewController id="rPr-Fp-ALE" customClass="CountryViewController" customModule="APIClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pj8-zF-1z6"/>
                         <viewControllerLayoutGuide type="bottom" id="kt2-9S-3TK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rEB-Za-Zhx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="5Kt-5Q-5kD">
+                                <rect key="frame" x="67" y="128" width="186" height="101"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="Phl-mJ-QD3">
+                                        <rect key="frame" x="0.0" y="0.0" width="86" height="101"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NpO-xb-9DU">
+                                                <rect key="frame" x="0.0" y="0.0" width="86" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capital:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dD8-fh-2a1">
+                                                <rect key="frame" x="0.0" y="40" width="86" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Population:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9qz-td-3d0">
+                                                <rect key="frame" x="0.0" y="80" width="86" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="KuS-dc-ELV">
+                                        <rect key="frame" x="105" y="0.0" width="81" height="101"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VEk-0H-oEc">
+                                                <rect key="frame" x="0.0" y="0.0" width="81" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Capital" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ROf-Yp-E1l">
+                                                <rect key="frame" x="0.0" y="40" width="81" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Population" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYw-aO-hhI">
+                                                <rect key="frame" x="0.0" y="80" width="81" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5Kt-5Q-5kD" firstAttribute="centerX" secondItem="rEB-Za-Zhx" secondAttribute="centerX" id="9Xo-KK-tm1"/>
+                            <constraint firstItem="5Kt-5Q-5kD" firstAttribute="top" secondItem="pj8-zF-1z6" secondAttribute="bottom" constant="64" id="pMU-IF-a8w"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="CZR-l9-xMg"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="CZR-l9-xMg">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="search for country" textAlignment="center" minimumFontSize="17" id="WrL-n9-fYI">
+                            <rect key="frame" x="57" y="7" width="206" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="p1y-OK-AlV">
+                            <connections>
+                                <action selector="searchButtonPressed:" destination="rPr-Fp-ALE" id="AZV-Ws-jtO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="CapitalLabel" destination="dD8-fh-2a1" id="Q93-C3-qvA"/>
+                        <outlet property="countryLabel" destination="NpO-xb-9DU" id="k1y-Vf-NlC"/>
+                        <outlet property="populationLabel" destination="9qz-td-3d0" id="XR9-tV-Edy"/>
+                        <outlet property="searchDisplayController" destination="jVl-oy-125" id="Pdi-Hv-vAV"/>
+                        <outlet property="searchField" destination="WrL-n9-fYI" id="rKS-5D-6fT"/>
+                        <outlet property="showCapitalLabel" destination="ROf-Yp-E1l" id="lBK-hP-fVe"/>
+                        <outlet property="showCountryLabel" destination="VEk-0H-oEc" id="vou-5l-baW"/>
+                        <outlet property="showPopulationLabel" destination="tYw-aO-hhI" id="wjn-dD-20E"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OaC-W5-AeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="jVl-oy-125">
+                    <connections>
+                        <outlet property="delegate" destination="rPr-Fp-ALE" id="CCc-25-nWj"/>
+                        <outlet property="searchContentsController" destination="rPr-Fp-ALE" id="3RA-xe-0d6"/>
+                        <outlet property="searchResultsDataSource" destination="rPr-Fp-ALE" id="80Y-Bm-tFQ"/>
+                        <outlet property="searchResultsDelegate" destination="rPr-Fp-ALE" id="kJT-8a-kIo"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="65" y="301"/>
+            <point key="canvasLocation" x="34" y="284"/>
         </scene>
     </scenes>
 </document>
