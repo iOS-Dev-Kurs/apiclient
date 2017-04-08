@@ -1,16 +1,16 @@
 PODS:
-  - Alamofire (3.3.1)
-  - AlamofireImage (2.4.0):
-    - Alamofire (~> 3.3)
-  - AwesomeCache (2.0)
-  - Freddy (2.1.0)
-  - Moya (6.4.0):
-    - Moya/Core (= 6.4.0)
-  - Moya/Core (6.4.0):
-    - Alamofire (~> 3.0)
-    - Result (~> 2.0)
-  - Nimble (4.0.1)
-  - Result (2.0.0)
+  - Alamofire (4.4.0)
+  - AlamofireImage (3.2.0):
+    - Alamofire (~> 4.1)
+  - AwesomeCache (5.0)
+  - Freddy (3.0.0)
+  - Moya (8.0.3):
+    - Moya/Core (= 8.0.3)
+  - Moya/Core (8.0.3):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
+  - Nimble (6.1.0)
+  - Result (3.2.1)
 
 DEPENDENCIES:
   - AlamofireImage
@@ -20,14 +20,14 @@ DEPENDENCIES:
   - Nimble
 
 SPEC CHECKSUMS:
-  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
-  AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
-  AwesomeCache: 5d6839ad139cdcee3c3a067f6fc1849523867dd9
-  Freddy: bbdca013977db29638b24baf6572ce94452bec29
-  Moya: 4d526954c8afd79820991393d40d7d8af756ceee
-  Nimble: 0f3c8b8b084cda391209c3c5efbb48bedeeb920a
-  Result: 9e75e1111c774c6ac594e14907b15057053a7959
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
+  AwesomeCache: d8906955242173357caa0be0214d5e77dec32cc5
+  Freddy: 367f994c88a90dd3987293b4b1bec94a4530745a
+  Moya: d3721622e3cc0cc2f038d69a258686f0b66e7252
+  Nimble: c53e6903fee94041b90ded74f135820437d8bf59
+  Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
 
 PODFILE CHECKSUM: 2f66579bc8ac348aedd204401ab036a31f94c666
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.2.0
