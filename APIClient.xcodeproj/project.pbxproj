@@ -13,6 +13,8 @@
 		874D06601CEF295E009A494D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 874D065F1CEF295E009A494D /* Assets.xcassets */; };
 		874D06631CEF295E009A494D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 874D06611CEF295E009A494D /* LaunchScreen.storyboard */; };
 		A526FDEE5BF2D1BC3C97B9FA /* Pods_APIClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD8A5B3E1266D5298CABE44A /* Pods_APIClient.framework */; };
+		C2A151551E9E172700B906B7 /* WolframalphaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A151541E9E172700B906B7 /* WolframalphaViewController.swift */; };
+		C2B44A0A1E9E2A9000CD4B11 /* Wolfram.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B44A091E9E2A9000CD4B11 /* Wolfram.swift */; };
 		E9294E7F05F2671186BD1359 /* Pods_APIClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FFA0A7AA37697BD5CBC3211 /* Pods_APIClientTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,9 +49,10 @@
 		87EC714F1CFA380F00FBDDDE /* APIClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APIClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		87EC71531CFA380F00FBDDDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87EC715D1CFA381600FBDDDE /* APIClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APIClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		87EC71611CFA381600FBDDDE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		93EFAB13AE62F1B6FB2683B2 /* Pods-APIClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APIClient/Pods-APIClient.debug.xcconfig"; sourceTree = "<group>"; };
 		BD8A5B3E1266D5298CABE44A /* Pods_APIClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2A151541E9E172700B906B7 /* WolframalphaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WolframalphaViewController.swift; sourceTree = "<group>"; };
+		C2B44A091E9E2A9000CD4B11 /* Wolfram.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Wolfram.swift; path = ../Wolfram.swift; sourceTree = "<group>"; };
 		C67B3B3E7990BE278400974F /* Pods-APIClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientUITests/Pods-APIClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F8B9811B1068B05E73195990 /* Pods-APIClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientTests/Pods-APIClientTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FFE13D543A95D28F27CFBDA4 /* Pods-APIClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-APIClient/Pods-APIClient.release.xcconfig"; sourceTree = "<group>"; };
@@ -119,7 +122,6 @@
 			children = (
 				874D06571CEF295E009A494D /* APIClient */,
 				87EC71501CFA380F00FBDDDE /* APIClientTests */,
-				87EC715E1CFA381600FBDDDE /* APIClientUITests */,
 				874D06561CEF295E009A494D /* Products */,
 				CF558E3374C5C3F956C82B81 /* Pods */,
 				D9BE20B845CB84F96D784197 /* Frameworks */,
@@ -141,6 +143,8 @@
 			children = (
 				874D06581CEF295E009A494D /* AppDelegate.swift */,
 				874D065C1CEF295E009A494D /* Main.storyboard */,
+				C2A151541E9E172700B906B7 /* WolframalphaViewController.swift */,
+				C2B44A091E9E2A9000CD4B11 /* Wolfram.swift */,
 				872A27571CF0D4E200A988C4 /* View Controller */,
 				872A27581CF0D4EB00A988C4 /* View */,
 				872A27591CF0D64A00A988C4 /* Model */,
@@ -155,14 +159,6 @@
 				87EC71531CFA380F00FBDDDE /* Info.plist */,
 			);
 			path = APIClientTests;
-			sourceTree = "<group>";
-		};
-		87EC715E1CFA381600FBDDDE /* APIClientUITests */ = {
-			isa = PBXGroup;
-			children = (
-				87EC71611CFA381600FBDDDE /* Info.plist */,
-			);
-			path = APIClientUITests;
 			sourceTree = "<group>";
 		};
 		CF558E3374C5C3F956C82B81 /* Pods */ = {
@@ -468,6 +464,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2B44A0A1E9E2A9000CD4B11 /* Wolfram.swift in Sources */,
+				C2A151551E9E172700B906B7 /* WolframalphaViewController.swift in Sources */,
 				874D06591CEF295E009A494D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
