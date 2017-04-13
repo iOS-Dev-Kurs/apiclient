@@ -1,8 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="E10-YL-lxp">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="E10-YL-lxp">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -21,24 +26,75 @@
             </objects>
             <point key="canvasLocation" x="-658" y="301"/>
         </scene>
-        <!--View Controller-->
+        <!--Quotes View Controller-->
         <scene sceneID="adh-8k-Iuh">
             <objects>
-                <viewController id="rPr-Fp-ALE" sceneMemberID="viewController">
+                <viewController id="rPr-Fp-ALE" customClass="quotesViewController" customModule="APIClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pj8-zF-1z6"/>
                         <viewControllerLayoutGuide type="bottom" id="kt2-9S-3TK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rEB-Za-Zhx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="EEX-t0-JKc">
+                                <rect key="frame" x="16" y="94" width="343" height="129"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="751" verticalHuggingPriority="751" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Fkf-J3-nWK">
+                                        <rect key="frame" x="161.5" y="0.0" width="20" height="20"/>
+                                    </activityIndicatorView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="LZV-Bb-WyU">
+                                        <rect key="frame" x="134" y="47" width="75" height="82"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K99-T7-m9q">
+                                                <rect key="frame" x="0.0" y="0.0" width="75" height="46.5"/>
+                                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="30"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="siC-fb-Ba6">
+                                                <rect key="frame" x="16.5" y="62.5" width="42.5" height="19.5"/>
+                                                <fontDescription key="fontDescription" name="Georgia-Italic" family="Georgia" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="EEX-t0-JKc" secondAttribute="trailing" id="dNP-P9-7cf"/>
+                            <constraint firstItem="EEX-t0-JKc" firstAttribute="top" secondItem="pj8-zF-1z6" secondAttribute="bottom" constant="30" id="v7C-84-9QX"/>
+                            <constraint firstItem="EEX-t0-JKc" firstAttribute="leading" secondItem="rEB-Za-Zhx" secondAttribute="leadingMargin" id="yzZ-Ge-ig9"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="CZR-l9-xMg"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="CZR-l9-xMg">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Movies" id="fpO-hf-TUj">
+                            <connections>
+                                <action selector="moviesButton:" destination="rPr-Fp-ALE" id="NYd-AK-65Y"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Famous" id="QY7-IX-Q1A">
+                            <connections>
+                                <action selector="famousButton:" destination="rPr-Fp-ALE" id="8rd-Zd-OD3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="activityView" destination="Fkf-J3-nWK" id="aeF-TE-FPW"/>
+                        <outlet property="authorLabel" destination="siC-fb-Ba6" id="dz2-FU-SXo"/>
+                        <outlet property="nameLabel" destination="K99-T7-m9q" id="3Ce-iw-vbL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OaC-W5-AeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65" y="301"/>
+            <point key="canvasLocation" x="65" y="319"/>
         </scene>
     </scenes>
 </document>
