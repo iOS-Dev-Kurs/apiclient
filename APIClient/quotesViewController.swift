@@ -15,14 +15,32 @@ import Freddy
 class quotesViewController: UIViewController, UITextFieldDelegate {
     
     
-    @IBOutlet weak var inputTextField: UITextField!
+    @IBOutlet weak var activityView: UIActivityIndicatorView!
+    // @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var nameLabel: UILabel!
- 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBAction func moviesButton(_ sender: Any) {
         
-        guard let input = textField.text else {
-            return true
-        }
+        showQuote(for: "movies")
+       
+    }
+    @IBAction func famousButton(_ sender: Any) {
+        showQuote(for: "famous")
+    }
+ 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        nameLabel.text = ""
+        authorLabel.text = ""
+        self.title = "It´s your choice!"
+        self.activityView.hidesWhenStopped = true
+    
+    }
+    
+    func showQuote(for category: String) {
+       
+        activityView.startAnimating()
         
         let endpointClosure = { (target: Quotesapi) -> Endpoint<Quotesapi> in
             let headers = [
@@ -33,14 +51,14 @@ class quotesViewController: UIViewController, UITextFieldDelegate {
                 .adding(newHTTPHeaderFields: headers)
         }
         
-    
-        
         let provider = MoyaProvider<Quotesapi>(endpointClosure: endpointClosure)
         
-        let query = Quotesapi.quote(category: input)
+        let query = Quotesapi.quote(category: category)
+    
         
         provider.request(query) { result in
             
+            self.activityView.stopAnimating()
             switch result {
             case .success(let response):
                 do {
@@ -48,18 +66,18 @@ class quotesViewController: UIViewController, UITextFieldDelegate {
                     print(jsonResponse)
                     let result = try results (json: jsonResponse)
                     self.nameLabel.text = result.quote
+                    self.authorLabel.text = result.author
                 } catch {
                 print(error)
                 }
                 
-                
+        
             case .failure(let error):
                 
                 print(error)
-            
+        
             }
         }
         
-        return true
     }
 }
