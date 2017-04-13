@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		078B558C6C77F3C6DCDC4678 /* Pods_APIClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82531BA6D6228998A00AB5B6 /* Pods_APIClientUITests.framework */; };
+		14450E9C1E9E178C0045AB83 /* APODViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14450E9B1E9E178C0045AB83 /* APODViewController.swift */; };
+		14450E9E1E9E1EA80045AB83 /* APOD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14450E9D1E9E1EA80045AB83 /* APOD.swift */; };
+		14450EA01E9E2BCB0045AB83 /* APODResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14450E9F1E9E2BCB0045AB83 /* APODResult.swift */; };
 		874D06591CEF295E009A494D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874D06581CEF295E009A494D /* AppDelegate.swift */; };
 		874D065E1CEF295E009A494D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 874D065C1CEF295E009A494D /* Main.storyboard */; };
 		874D06601CEF295E009A494D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 874D065F1CEF295E009A494D /* Assets.xcassets */; };
@@ -34,6 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14450E9B1E9E178C0045AB83 /* APODViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APODViewController.swift; sourceTree = "<group>"; };
+		14450E9D1E9E1EA80045AB83 /* APOD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APOD.swift; sourceTree = "<group>"; };
+		14450E9F1E9E2BCB0045AB83 /* APODResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APODResult.swift; sourceTree = "<group>"; };
 		198B23CD94C6D84016A5208A /* Pods-APIClientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientUITests/Pods-APIClientUITests.release.xcconfig"; sourceTree = "<group>"; };
 		4FFA0A7AA37697BD5CBC3211 /* Pods_APIClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_APIClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65C820A0F52E3181871F5ECA /* Pods-APIClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-APIClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-APIClientTests/Pods-APIClientTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +92,8 @@
 		872A27571CF0D4E200A988C4 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				14450E9B1E9E178C0045AB83 /* APODViewController.swift */,
+				14450E9D1E9E1EA80045AB83 /* APOD.swift */,
 			);
 			name = "View Controller";
 			sourceTree = "<group>";
@@ -100,6 +108,7 @@
 		872A27591CF0D64A00A988C4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				14450E9F1E9E2BCB0045AB83 /* APODResult.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -265,6 +274,7 @@
 				TargetAttributes = {
 					874D06541CEF295E009A494D = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = C4DBNLN23D;
 						LastSwiftMigration = 0830;
 					};
 					87EC714E1CFA380F00FBDDDE = {
@@ -468,6 +478,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14450E9C1E9E178C0045AB83 /* APODViewController.swift in Sources */,
+				14450E9E1E9E1EA80045AB83 /* APOD.swift in Sources */,
+				14450EA01E9E2BCB0045AB83 /* APODResult.swift in Sources */,
 				874D06591CEF295E009A494D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -611,6 +624,7 @@
 			baseConfigurationReference = 93EFAB13AE62F1B6FB2683B2 /* Pods-APIClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C4DBNLN23D;
 				INFOPLIST_FILE = APIClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.APIClient";
@@ -624,6 +638,7 @@
 			baseConfigurationReference = FFE13D543A95D28F27CFBDA4 /* Pods-APIClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = C4DBNLN23D;
 				INFOPLIST_FILE = APIClient/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.uni-heidelberg.ios-dev-kurs.APIClient";

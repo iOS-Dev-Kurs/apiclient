@@ -1,13 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="E10-YL-lxp">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="E10-YL-lxp">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="Xrb-yS-kMZ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hfS-9i-aMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="E10-YL-lxp" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="amJ-5H-qs5">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -17,28 +22,66 @@
                         <segue destination="rPr-Fp-ALE" kind="relationship" relationship="rootViewController" id="g8j-CJ-uaE"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hfS-9i-aMM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-658" y="301"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="adh-8k-Iuh">
             <objects>
-                <viewController id="rPr-Fp-ALE" sceneMemberID="viewController">
+                <viewController id="rPr-Fp-ALE" customClass="APODViewController" customModule="APIClient" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pj8-zF-1z6"/>
                         <viewControllerLayoutGuide type="bottom" id="kt2-9S-3TK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rEB-Za-Zhx">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pw2-aJ-gA8">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <subviews>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Cwl-Tf-qaK">
+                                        <rect key="frame" x="27.5" y="0.0" width="320" height="0.0"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="513764211.247284">
+                                            <!--2017-04-13 08:16:51 +0000-->
+                                        </date>
+                                    </datePicker>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gP-lQ-GcF">
+                                        <rect key="frame" x="164.5" y="0.0" width="46" height="0.0"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="dateConfirm:" destination="rPr-Fp-ALE" eventType="touchUpInside" id="yRi-C4-vYV"/>
+                                        </connections>
+                                    </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="gy4-g6-zB5">
+                                        <rect key="frame" x="177.5" y="0.0" width="20" height="0.0"/>
+                                    </activityIndicatorView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uqy-JK-CHB">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="pw2-aJ-gA8" secondAttribute="bottom" id="EYy-If-pZd"/>
+                            <constraint firstAttribute="trailing" secondItem="pw2-aJ-gA8" secondAttribute="trailing" id="UbO-RI-Z6N"/>
+                            <constraint firstItem="pw2-aJ-gA8" firstAttribute="top" secondItem="pj8-zF-1z6" secondAttribute="bottom" id="m7F-50-qfg"/>
+                            <constraint firstItem="pw2-aJ-gA8" firstAttribute="leading" secondItem="rEB-Za-Zhx" secondAttribute="leading" id="w0H-a3-Oo7"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="CZR-l9-xMg"/>
+                    <navigationItem key="navigationItem" id="CZR-l9-xMg">
+                        <nil key="title"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="datePickerField" destination="Cwl-Tf-qaK" id="HkZ-1j-fXO"/>
+                        <outlet property="imageLoading" destination="gy4-g6-zB5" id="pdX-cp-7I0"/>
+                        <outlet property="outputAPOD" destination="uqy-JK-CHB" id="V1Q-1O-2lR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OaC-W5-AeM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65" y="301"/>
+            <point key="canvasLocation" x="134" y="-88"/>
         </scene>
     </scenes>
 </document>
