@@ -38,23 +38,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvN-BT-0Mh">
-                                <rect key="frame" x="16" y="64" width="343" height="603"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="H4E-tx-Nvd">
-                                <rect key="frame" x="177" y="104" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="H4E-tx-Nvd">
+                                <rect key="frame" x="177" y="72" width="20" height="20"/>
                             </activityIndicatorView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Hgb-z1-9mA">
+                                <rect key="frame" x="16" y="92" width="343" height="575"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="hvN-BT-0Mh" firstAttribute="leading" secondItem="rEB-Za-Zhx" secondAttribute="leadingMargin" id="0au-a4-Rqh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="hvN-BT-0Mh" secondAttribute="trailing" id="LOe-Ww-eyD"/>
-                            <constraint firstItem="kt2-9S-3TK" firstAttribute="top" secondItem="hvN-BT-0Mh" secondAttribute="bottom" id="lwq-43-X8g"/>
-                            <constraint firstItem="hvN-BT-0Mh" firstAttribute="top" secondItem="pj8-zF-1z6" secondAttribute="bottom" id="rIt-MZ-667"/>
+                            <constraint firstItem="H4E-tx-Nvd" firstAttribute="top" secondItem="pj8-zF-1z6" secondAttribute="bottom" constant="8" id="1wE-X3-Nto"/>
+                            <constraint firstItem="kt2-9S-3TK" firstAttribute="top" secondItem="Hgb-z1-9mA" secondAttribute="bottom" id="2Vl-Er-bsm"/>
+                            <constraint firstItem="H4E-tx-Nvd" firstAttribute="centerX" secondItem="rEB-Za-Zhx" secondAttribute="centerX" id="oZy-HW-r4h"/>
+                            <constraint firstItem="Hgb-z1-9mA" firstAttribute="top" secondItem="H4E-tx-Nvd" secondAttribute="bottom" id="sOv-eQ-yBp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Hgb-z1-9mA" secondAttribute="trailing" id="t72-hH-GY4"/>
+                            <constraint firstItem="Hgb-z1-9mA" firstAttribute="leading" secondItem="rEB-Za-Zhx" secondAttribute="leadingMargin" id="v7D-oT-AZf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CZR-l9-xMg">
@@ -71,7 +72,7 @@
                         </textField>
                     </navigationItem>
                     <connections>
-                        <outlet property="answerLabel" destination="hvN-BT-0Mh" id="xgb-Rm-Ggy"/>
+                        <outlet property="answerLabel" destination="Hgb-z1-9mA" id="wvf-gA-KJk"/>
                         <outlet property="inputTextfield" destination="gif-nb-Vad" id="wLo-fd-pA6"/>
                         <outlet property="loadingIndicator" destination="H4E-tx-Nvd" id="CxR-Jn-oNN"/>
                     </connections>

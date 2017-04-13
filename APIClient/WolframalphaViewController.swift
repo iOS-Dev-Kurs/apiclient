@@ -19,7 +19,7 @@ class WolframalphaViewController: UIViewController,
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
 
-    @IBOutlet weak var answerLabel: UILabel!
+    @IBOutlet weak var answerLabel: UITextView!
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
